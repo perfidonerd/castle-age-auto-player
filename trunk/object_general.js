@@ -457,7 +457,7 @@ general = {
                     }
                 }
 
-                global.log(1, "All Generals", this.RecordArray);
+                global.log(2, "All Generals", this.RecordArray);
             }
 
             return true;
