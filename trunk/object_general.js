@@ -1,3 +1,4 @@
+
 ////////////////////////////////////////////////////////////////////
 //                          general OBJECT
 // this is the main object for dealing with Generals
@@ -569,7 +570,7 @@ general = {
 
     GetAllStats: function () {
         try {
-            if (!caap.WhileSinceDidIt(caap.last.allGenerals, (3 * 60 * 60) + (5 * 60))) {
+            if (!caap.WhileSinceDidIt(caap.last.allGenerals, (12 * 60 * 60) + (5 * 60))) {
                 return false;
             }
 
