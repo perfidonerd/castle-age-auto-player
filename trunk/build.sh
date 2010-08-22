@@ -47,8 +47,8 @@ else
     echo "Creating Chrome development version"
     sed -f build/version.sed build/manifest.dev > Chrome/manifest.json
     sed -f build/version.sed build/updates.tmpl > updates.xml
-    if [ -f build/Chrome.pem ]; then
-        google-chrome --no-message-box --pack-extension="Chrome" --pack-extension-key="build/Chrome.pem"
+    if [ -f ../Chrome.pem ]; then
+        chromium-browser --no-message-box --pack-extension="Chrome" --pack-extension-key="../Chrome.pem"
     else
         echo "Would create packed Chrome extension, but you are missing Chrome.pem file"
     fi
