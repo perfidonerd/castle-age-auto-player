@@ -64,8 +64,8 @@ if (gm.getValue('SetTitle')) {
 // to get updates from http://code.google.com/
 /////////////////////////////////////////////////////////////////////
 
- if (!global.is_chrome) {
-    if (isRelease) {
+if (!global.is_chrome) {
+    if (!devVersion) {
         global.releaseUpdate();
     } else {
         global.devUpdate();
