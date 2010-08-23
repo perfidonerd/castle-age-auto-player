@@ -40,7 +40,7 @@ echo "Done."
 
 if grep -e s/\!dev\!/0/g build/version.sed; then
     echo "Creating Chrome release version"
-    sed -f version.sed build/manifest.rel > Chrome/manifest.json
+    sed -f build/version.sed build/manifest.rel > Chrome/manifest.json
     rm -f Chrome.zip
     zip -j Chrome.zip Chrome/*
 else
