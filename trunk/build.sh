@@ -10,6 +10,9 @@ echo "Done."
 echo -n "Joining files into _normal.user.js : "
 sed -f build/version.sed _head.js > _normal.user.js
 cat object_image64.js >> _normal.user.js
+cat object_utility.js >> _normal.user.js
+cat object_config.js >> _normal.user.js
+cat object_state.js >> _normal.user.js
 cat object_css.js >> _normal.user.js
 cat object_global.js >> _normal.user.js
 cat object_gm.js >> _normal.user.js
@@ -17,6 +20,10 @@ cat object_html.js >> _normal.user.js
 cat object_sort.js >> _normal.user.js
 cat object_schedule.js >> _normal.user.js
 cat object_general.js >> _normal.user.js
+cat object_monster.js >> _normal.user.js
+cat object_battle.js >> _normal.user.js
+cat object_town.js >> _normal.user.js
+cat object_gifting.js >> _normal.user.js
 cat object_caap.js >> _normal.user.js
 cat _main.js >> _normal.user.js
 echo "Done."
