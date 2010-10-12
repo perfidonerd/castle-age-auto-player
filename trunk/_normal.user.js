@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.23.51
-// @dev            35
+// @dev            36
 // @require        http://cloutman.com/jquery-latest.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -21,7 +21,7 @@
 /*global window,unsafeWindow,$,GM_log,console,GM_getValue,GM_setValue,GM_xmlhttpRequest,GM_openInTab,GM_registerMenuCommand,XPathResult,GM_deleteValue,GM_listValues,GM_addStyle,CM_Listener,CE_message,ConvertGMtoJSON,localStorage */
 
 var caapVersion  = "140.23.51",
-    devVersion   = "35",
+    devVersion   = "36",
     hiddenVar    = true;
 
 ///////////////////////////
@@ -6032,6 +6032,14 @@ caap = {
                 $('.UIStandardFrame_SidebarAds').css('display', 'none');
             }
 
+            if (config.getItem('HideAdsIframe', false)) {
+                $("iframe[name*='fb_iframe']:first").parent().parent().css('display', 'none');
+            }
+
+            if (config.getItem('HideFBChat', false)) {
+                $("div[class*='fbDockWrapper fbDockWrapperBottom fbDockWrapperRight']").css('display', 'none');
+            }
+
             // Can create a blank space above the game to host the dashboard if wanted.
             // Dashboard currently uses '185px'
             var shiftDown = gm.getItem('ShiftDown', '', hiddenVar);
@@ -7194,6 +7202,8 @@ caap = {
                 titleInstructions2 = "Add the player name.",
                 autoCollectMAInstructions = "Auto collect your Master and Apprentice rewards.",
                 hideAdsInstructions = "Hides the sidebar adverts.",
+                hideAdsIframeInstructions = "Hide the FaceBook Iframe adverts",
+                hideFBChatInstructions = "Hide the FaceBook Chat",
                 newsSummaryInstructions = "Enable or disable the news summary on the index page.",
                 autoAlchemyInstructions1 = "AutoAlchemy will combine all recipes " +
                     "that do not have missing ingredients. By default, it will not " +
@@ -7243,6 +7253,8 @@ caap = {
             htmlCode += '</div>';
             htmlCode += "<table width='180px' cellpadding='0px' cellspacing='0px'>";
             htmlCode += this.MakeCheckTR('Hide Sidebar Adverts', 'HideAds', false, '', hideAdsInstructions);
+            htmlCode += this.MakeCheckTR('Hide FB Iframe Adverts', 'HideAdsIframe', false, '', hideAdsIframeInstructions);
+            htmlCode += this.MakeCheckTR('Hide FB Chat', 'HideFBChat', false, '', hideFBChatInstructions);
             htmlCode += this.MakeCheckTR('Enable News Summary', 'NewsSummary', true, '', newsSummaryInstructions);
             htmlCode += this.MakeCheckTR('Auto Collect MA', 'AutoCollectMA', false, '', autoCollectMAInstructions);
             htmlCode += this.MakeCheckTR('Auto Alchemy', 'AutoAlchemy', false, 'AutoAlchemy_Adv', autoAlchemyInstructions1, true);
@@ -8951,6 +8963,32 @@ caap = {
                 }
 
                 break;
+            case "HideAdsIframe" :
+                utility.log(9, "HideAdsIframe");
+                if (e.target.checked) {
+                    $("iframe[name*='fb_iframe']:first").parent().parent().css('display', 'none');
+                } else {
+                    $("iframe[name*='fb_iframe']:first").parent().parent().css('display', 'block');
+                }
+
+                caap.dashboardXY.x = state.getItem('caap_top_menuLeft', '');
+                caap.dashboardXY.y = state.getItem('caap_top_menuTop', $(caap.dashboardXY.selector).offset().top - 10);
+                styleXY = caap.GetDashboardXY();
+                caap.caapTopObject.css({
+                    top                     : styleXY.y + 'px',
+                    left                    : styleXY.x + 'px'
+                });
+
+                break;
+            case "HideFBChat" :
+                utility.log(9, "HideFBChat");
+                if (e.target.checked) {
+                    $("div[class*='fbDockWrapper fbDockWrapperBottom fbDockWrapperRight']").css('display', 'none');
+                } else {
+                    $("div[class*='fbDockWrapper fbDockWrapperBottom fbDockWrapperRight']").css('display', 'block');
+                }
+
+                break;
             case "BannerDisplay" :
                 utility.log(9, "BannerDisplay");
                 if (e.target.checked) {
@@ -9509,6 +9547,10 @@ caap = {
                     alert(event.target.id);
                 }
                 */
+
+                if (config.getItem('HideAdsIframe', false)) {
+                    $("iframe[name*='fb_iframe']:first").parent().parent().css('display', 'none');
+                }
 
                 if ($.inArray(targetStr, caap.targetList) !== -1) {
                     utility.log(9, "Refreshing DOM Listeners", event.target.id);
