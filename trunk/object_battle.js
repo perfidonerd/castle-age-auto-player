@@ -95,7 +95,7 @@ battle = {
     load: function () {
         try {
             battle.records = gm.getItem('battle.records', 'default');
-            if (battle.records === 'default' || !$.isArray(battle.records)) {
+            if (battle.records === 'default' || !$j.isArray(battle.records)) {
                 battle.records = gm.setItem('battle.records', []);
             }
 
@@ -172,7 +172,7 @@ battle = {
 
     setItem: function (record) {
         try {
-            if (!record || !$.isPlainObject(record)) {
+            if (!record || !$j.isPlainObject(record)) {
                 throw "Not passed a record";
             }
 
@@ -260,7 +260,7 @@ battle = {
                 throw "Invalid identifying userId!";
             }
 
-            hash = utility.SHA1(utility.SHA1(record['userId'].toString()) + record['nameStr']);
+            hash = (record['userId'].toString().SHA1() + record['nameStr']).SHA1();
             return (hashes.indexOf(hash) >= 0);
         } catch (err) {
             utility.error("ERROR in battle.hashCheck: " + err);
@@ -272,12 +272,13 @@ battle = {
 
     getResult: function () {
         try {
-            var wrapperDiv    = $(),
-                resultsDiv    = $(),
-                tempDiv       = $(),
+            var wrapperDiv    = $j(),
+                resultsDiv    = $j(),
+                tempDiv       = $j(),
                 tempText      = '',
                 tStr          = '',
                 tempArr       = [],
+                tempNum       = 0,
                 battleRecord  = {},
                 warWinLoseImg = '',
                 result        = {
@@ -291,7 +292,7 @@ battle = {
                     unknown    : false
                 };
 
-            wrapperDiv = $("#app46755028429_results_main_wrapper");
+            wrapperDiv = $j("#app46755028429_results_main_wrapper");
             if (wrapperDiv.find("img[src*='battle_victory.gif']").length) {
                 warWinLoseImg = 'war_win_left.jpg';
                 result.win = true;
@@ -357,7 +358,7 @@ battle = {
                     if (tempDiv && tempDiv.length) {
                         tempText = tempDiv.attr("value");
                         if (tempText) {
-                            result.userId = tempText.parseInt();
+                            result.userId = tempText ? tempText.numberOnly() : 0;
                         } else {
                             utility.warn("No value in", tempDiv);
                             throw "Unable to get userId!";
@@ -367,7 +368,7 @@ battle = {
                         throw "Unable to get userId!";
                     }
 
-                    tempDiv = $("div[style*='" + warWinLoseImg + "']");
+                    tempDiv = $j("div[style*='" + warWinLoseImg + "']");
                     if (tempDiv && tempDiv.length) {
                         tempText = tempDiv.text();
                         tempText = tempText ? tempText.trim() : '';
@@ -479,6 +480,7 @@ battle = {
             }
 
             battleRecord = battle.getItem(result.userId);
+            utility.log(1, "battleRecord", battleRecord, result);
             battleRecord['attackTime'] = new Date().getTime();
             if (result.userName && result.userName !== battleRecord['nameStr']) {
                 utility.log(1, "Updating battle record user name, from/to", battleRecord['nameStr'], result.userName);
@@ -511,11 +513,14 @@ battle = {
 
                 break;
             case 'War' :
+                utility.log(1, "War Result");
                 if (result.win) {
                     battleRecord['warwinsNum'] += 1;
+                    utility.log(1, "War Win", battleRecord['warwinsNum']);
                 } else {
                     battleRecord['warlossesNum'] += 1;
                     battleRecord['warLostTime'] = new Date().getTime();
+                    utility.log(1, "War Loss", battleRecord['warLostTime']);
                 }
 
                 break;
@@ -524,6 +529,7 @@ battle = {
             }
 
             battle.setItem(battleRecord);
+            utility.log(1, "getResult returning", result, battleRecord);
             return result;
         } catch (err) {
             utility.error("ERROR in battle.getResult: " + err);
@@ -533,7 +539,7 @@ battle = {
 
     deadCheck: function () {
         try {
-            var resultsDiv   = $(),
+            var resultsDiv   = $j(),
                 resultsText  = '',
                 battleRecord = {},
                 dead         = false;
@@ -549,14 +555,14 @@ battle = {
                 if (resultsText) {
                     if (resultsText.match(/Your opponent is dead or too weak to battle/)) {
                         utility.log(1, "This opponent is dead or hiding: ", state.getItem("lastBattleID", 0));
-                        if ($.isPlainObject(battleRecord) && !$.isEmptyObject(battleRecord)) {
+                        if ($j.isPlainObject(battleRecord) && !$j.isEmptyObject(battleRecord)) {
                             battleRecord['deadTime'] = new Date().getTime();
                         }
 
                         dead = true;
                     }
                 } else {
-                    if ($.isPlainObject(battleRecord) && !$.isEmptyObject(battleRecord)) {
+                    if ($j.isPlainObject(battleRecord) && !$j.isEmptyObject(battleRecord)) {
                         battleRecord['unknownTime'] = new Date().getTime();
                     }
 
@@ -564,7 +570,7 @@ battle = {
                     dead = null;
                 }
             } else {
-                if ($.isPlainObject(battleRecord) && !$.isEmptyObject(battleRecord)) {
+                if ($j.isPlainObject(battleRecord) && !$j.isEmptyObject(battleRecord)) {
                     battleRecord['unknownTime'] = new Date().getTime();
                 }
 
@@ -572,7 +578,7 @@ battle = {
                 dead = null;
             }
 
-            if (dead !== false && $.isPlainObject(battleRecord) && !$.isEmptyObject(battleRecord)) {
+            if (dead !== false && $j.isPlainObject(battleRecord) && !$j.isEmptyObject(battleRecord)) {
                 battle.setItem(battleRecord);
             }
 
@@ -604,6 +610,7 @@ battle = {
             }
 
             result = battle.getResult();
+            utility.log(2, "result", result);
             if (!result || result.hiding === true) {
                 return true;
             }
@@ -711,7 +718,7 @@ battle = {
                 return target;
             }
 
-            targets = utility.TextToArray(config.getItem('BattleTargets', ''));
+            targets = config.getList('BattleTargets', '');
             if (!targets.length) {
                 return false;
             }
@@ -803,12 +810,12 @@ battle = {
 
     freshmeat: function (type) {
         try {
-            var inputDiv        = $(),
+            var inputDiv        = $j(),
                 plusOneSafe     = false,
                 safeTargets     = [],
                 chainId         = '',
                 chainAttack     = false,
-                inp             = $(),
+                inp             = $j(),
                 txt             = '',
                 tempArr         = [],
                 levelm          = [],
@@ -824,8 +831,8 @@ battle = {
                 tempTime        = 0,
                 it              = 0,
                 len             = 0,
-                tr              = $(),
-                form            = $(),
+                tr              = $j(),
+                form            = $j(),
                 firstId         = '',
                 lastBattleID    = 0,
                 engageButton    = null;
@@ -880,7 +887,7 @@ battle = {
             }
 
             for (it = 0, len = inputDiv.length; it < len; it += 1) {
-                tr = $();
+                tr = $j();
                 levelm = [];
                 txt = '';
                 tempArr = [];
@@ -1041,7 +1048,7 @@ battle = {
 
                 // don't battle people we lost to in the last week
                 battleRecord = battle.getItem(tempRecord.data['userId']);
-                if (!$.isEmptyObject(battleRecord)) {
+                if (!$j.isEmptyObject(battleRecord)) {
                     utility.log(1, "We have a battle record", battleRecord);
                 }
 
@@ -1161,7 +1168,7 @@ battle = {
                             state.setItem("lastBattleID", safeTargets[it]['userId']);
                             safeTargets[it]['aliveTime'] = new Date().getTime();
                             battleRecord = battle.getItem(safeTargets[it]['userId']);
-                            $.extend(true, battleRecord, safeTargets[it]);
+                            $j.extend(true, battleRecord, safeTargets[it]);
                             utility.log(3, "battleRecord", battleRecord);
                             battle.setItem(battleRecord);
                             caap.SetDivContent('battle_mess', 'Attacked: ' + lastBattleID);
