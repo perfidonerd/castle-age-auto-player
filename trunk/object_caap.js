@@ -71,6 +71,15 @@ caap = {
                         idOk = true;
                     }
                 }
+
+                if (!idOk) {
+                    FBID = window.presence.user ? window.presence.user.parseInt() : 0;
+                    if (utility.isNum(FBID) && FBID > 0) {
+                        utility.log(1, "FBID", FBID);
+                        caap.stats['FBID'] = FBID;
+                        idOk = true;
+                    }
+                }
             }
         }
         /*jslint sub: false */
@@ -10298,7 +10307,7 @@ caap = {
     /*-------------------------------------------------------------------------------------\
     Now we get all of the recipes and step through them one by one
     \-------------------------------------------------------------------------------------*/
-                ss = $j("div[class*='alchemyRecipeBack']");
+                ss = $j("div[class='alchemyRecipeBack']");
                 if (!ss || !ss.length) {
                     utility.log(2, 'No recipes found');
                 }
