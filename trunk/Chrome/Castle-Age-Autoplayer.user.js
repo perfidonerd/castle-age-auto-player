@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            42
+// @dev            43
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "42",
+        devVersion    = "43",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -17777,7 +17777,7 @@
                 damageDiv = $j("td[class='dragonContainer']:first td[valign='top']:first a[href*='user=" + caap.stats['FBID'] + "']:first", actionDiv);
                 if ($u.hasContent(damageDiv)) {
                     if (monsterInfo && monsterInfo.defense) {
-                        tempArr = $u.setContent(damageDiv.parent().parent().siblings(":last").text(), '').regex(/([\d,]+) dmg \/ ([\d,]+) def/);
+                        tempArr = $u.setContent(damageDiv.parent().parent().siblings(":last").text(), '').regex(/([\d,]+ dmg) \/ ([\d,]+ def)/);
                         if ($u.hasContent(tempArr) && tempArr.length === 2) {
                             currentMonster['attacked'] = $u.setContent(tempArr[0], '0').numberOnly();
                             currentMonster['defended'] = $u.setContent(tempArr[1], '0').numberOnly();

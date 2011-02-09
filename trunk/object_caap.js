@@ -9035,7 +9035,7 @@
                 damageDiv = $j("td[class='dragonContainer']:first td[valign='top']:first a[href*='user=" + caap.stats['FBID'] + "']:first", actionDiv);
                 if ($u.hasContent(damageDiv)) {
                     if (monsterInfo && monsterInfo.defense) {
-                        tempArr = $u.setContent(damageDiv.parent().parent().siblings(":last").text(), '').regex(/([\d,]+) dmg \/ ([\d,]+) def/);
+                        tempArr = $u.setContent(damageDiv.parent().parent().siblings(":last").text(), '').regex(/([\d,]+ dmg) \/ ([\d,]+ def)/);
                         if ($u.hasContent(tempArr) && tempArr.length === 2) {
                             currentMonster['attacked'] = $u.setContent(tempArr[0], '0').numberOnly();
                             currentMonster['defended'] = $u.setContent(tempArr[1], '0').numberOnly();
