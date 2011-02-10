@@ -16751,7 +16751,7 @@
                         return false;
                     }
 
-                    if (mode !== 'DemiPoints' && whenMonster !== 'Never' && targetMonster && !targetMonster.match(/the deathrune siege/i)) {
+                    if (mode !== 'DemiPoints' && whenMonster !== 'Never' && targetMonster && !/the deathrune siege/i.test(targetMonster)) {
                         return false;
                     }
 
