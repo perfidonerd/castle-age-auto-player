@@ -7998,7 +7998,6 @@
                 case 'No Monster' :
                     if (mode !== 'DemiPoints') {
                         if (whenMonster !== 'Never' && targetMonster && !/the deathrune siege/i.test(targetMonster)) {
-                            $u.log(1, "Here2.5", targetMonster, state.getItem('targetFromraid', ''), state.getItem('targetFromraid', ''));
                             return false;
                         }
                     }
