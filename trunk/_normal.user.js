@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            44
+// @dev            45
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "44",
+        devVersion    = "45",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -3122,8 +3122,7 @@
                             default:
                             }
                         } else {
-                            // Switch RaidPowerAttack - RaidStaminaReq is not being used - bug?
-                            if (gm.getItem('RaidPowerAttack', false, hiddenVar) || /:pa/i.test(monsterObj['conditions'])) {
+                            if (config.getItem('RaidPowerAttack', false) || /:pa/i.test(monsterObj['conditions'])) {
                                 state.setItem('RaidStaminaReq', 5);
                             } else if (monster.info[monsterObj['type']] && monster.info[monsterObj['type']].staUse) {
                                 state.setItem('RaidStaminaReq', monster.info[monsterObj['type']].staUse);
@@ -5337,7 +5336,8 @@
                 'aliveTime'       : 0,
                 'attackTime'      : 0,
                 'selectTime'      : 0,
-                'unknownTime'     : 0
+                'unknownTime'     : 0,
+                'newRecord'       : true
             };
         },
         /*jslint sub: false */
@@ -5453,6 +5453,7 @@
 
                 if (success) {
                     $u.log(3, "Got battle record", userId, battle.records[it]);
+                    battle.records[it]['newRecord'] = false;
                     return battle.records[it];
                 } else {
                     newRecord = new battle.record();
@@ -5488,6 +5489,7 @@
                     }
                 }
 
+                record['newRecord'] = false;
                 if (success) {
                     battle.records[it] = record;
                     $u.log(3, "Updated battle record", record, battle.records);
@@ -5765,7 +5767,6 @@
                 }
 
                 battleRecord = battle.getItem(result.userId);
-                $u.log(1, "battleRecord", battleRecord, result);
                 battleRecord['attackTime'] = new Date().getTime();
                 if (result.userName && result.userName !== battleRecord['nameStr']) {
                     $u.log(1, "Updating battle record user name, from/to", battleRecord['nameStr'], result.userName);
@@ -6052,8 +6053,10 @@
         /*jslint sub: true */
         battles: {
             'Raid' : {
-                'Invade'   : 'raid_attack_button.gif',
-                'Duel'     : 'raid_attack_button2.gif',
+                'Invade1'  : 'raid_attack_button.gif',
+                'Invade5'  : 'raid_attack_button3.gif',
+                'Duel1'    : 'raid_attack_button2.gif',
+                'Duel5'    : 'raid_attack_button4.gif',
                 'regex1'   : new RegExp('[0-9]+\\. (.+)\\s*Rank: ([0-9]+) ([^0-9]+) ([0-9]+) ([^0-9]+) ([0-9]+)', 'i'),
                 'refresh'  : 'raid',
                 'image'    : 'tab_raid_on.gif'
@@ -6093,7 +6096,8 @@
 
         freshmeat: function (type) {
             try {
-                var inputDiv        = $j("input[src*='" + battle.battles[type][config.getItem('BattleType', 'Invade')] + "']", caap.appBodyDiv),
+                var buttonType      = type === 'Raid' ? config.getItem('BattleType', 'Invade') + state.getItem('RaidStaminaReq', 1) : config.getItem('BattleType', 'Invade'),
+                    inputDiv        = $j("input[src*='" + battle.battles[type][buttonType] + "']", caap.appBodyDiv),
                     plusOneSafe     = false,
                     safeTargets     = [],
                     chainId         = '',
@@ -6193,7 +6197,7 @@
                     } else {
                         tr = tempRecord.data['button'].parents("tr").eq(0);
                         if (!$u.hasContent(tr)) {
-                            $u.warn("Can't find parent tr in", tempRecord.data['button']);
+                            $u.warn("Can't find parent tr in tempRecord.data['button']");
                             continue;
                         }
 
@@ -6319,10 +6323,6 @@
 
                     // don't battle people we lost to in the last week
                     battleRecord = battle.getItem(tempRecord.data['userId']);
-                    if (!$j.isEmptyObject(battleRecord)) {
-                        $u.log(1, "We have a battle record", battleRecord);
-                    }
-
                     if (!config.getItem("IgnoreBattleLoss", false)) {
                         switch (config.getItem("BattleType", 'Invade')) {
                         case 'Invade' :
@@ -6338,36 +6338,36 @@
                             $u.warn("Battle type unknown!", config.getItem("BattleType", 'Invade'));
                         }
 
-                        if (battleRecord && battleRecord['nameStr'] !== '' && !schedule.since(tempTime, 604800)) {
-                            $u.log(1, "We lost " + config.getItem("BattleType", 'Invade') + " to this id this week: ", tempRecord.data['userId'], battleRecord);
+                        if (battleRecord && !battleRecord['newRecord'] && !schedule.since(tempTime, 604800)) {
+                            $u.log(1, "We lost " + config.getItem("BattleType", 'Invade') + " to this id this week: ", tempRecord.data['userId']);
                             continue;
                         }
                     }
 
                     // don't battle people that results were unknown in the last hour
                     tempTime = $u.setContent(battleRecord['unknownTime'], 0);
-                    if (battleRecord && battleRecord['nameStr'] !== '' && !schedule.since(tempTime, 3600)) {
+                    if (battleRecord && !battleRecord['newRecord'] && !schedule.since(tempTime, 3600)) {
                         $u.log(1, "User was battled but results unknown in the last hour: ", tempRecord.data['userId']);
                         continue;
                     }
 
                     // don't battle people that were dead or hiding in the last hour
                     tempTime = $u.setContent(battleRecord['deadTime'], 0);
-                    if (battleRecord && battleRecord['nameStr'] !== '' && !schedule.since(tempTime, 3600)) {
+                    if (battleRecord && !battleRecord['newRecord'] && !schedule.since(tempTime, 3600)) {
                         $u.log(1, "User was dead in the last hour: ", tempRecord.data['userId']);
                         continue;
                     }
 
                     // don't battle people we've already chained to max in the last 2 days
                     tempTime = $u.setContent(battleRecord['chainTime'], 0);
-                    if (battleRecord && battleRecord['nameStr'] !== '' && !schedule.since(tempTime, 86400)) {
+                    if (battleRecord && !battleRecord['newRecord'] && !schedule.since(tempTime, 86400)) {
                         $u.log(1, "We chained user within 2 days: ", tempRecord.data['userId']);
                         continue;
                     }
 
                     // don't battle people that didn't meet chain gold or chain points in the last week
                     tempTime = $u.setContent(battleRecord['ignoreTime'], 0);
-                    if (battleRecord && battleRecord['nameStr'] !== '' && !schedule.since(tempTime, 604800)) {
+                    if (battleRecord && !battleRecord['newRecord'] && !schedule.since(tempTime, 604800)) {
                         $u.log(1, "User didn't meet chain requirements this week: ", tempRecord.data['userId']);
                         continue;
                     }
@@ -6387,7 +6387,6 @@
                 }
 
                 safeTargets.sort($u.sortBy(true, "score"));
-                $u.log(3, "safeTargets", safeTargets);
                 if ($u.hasContent(safeTargets)) {
                     if (chainAttack) {
                         form = inputDiv.eq(0).parent().parent();
@@ -6440,7 +6439,6 @@
                                 safeTargets[it]['aliveTime'] = new Date().getTime();
                                 battleRecord = battle.getItem(safeTargets[it]['userId']);
                                 $j.extend(true, battleRecord, safeTargets[it]);
-                                $u.log(3, "battleRecord", battleRecord);
                                 battle.setItem(battleRecord);
                                 caap.SetDivContent('battle_mess', 'Attacked: ' + lastBattleID);
                                 state.setItem("notSafeCount", 0);
@@ -10086,6 +10084,7 @@
                         " of targets are withn freshmeat settings. Note: Since Castle Age" +
                         " choses the target, selecting this option could result in a " +
                         "greater chance of loss.",
+                    raidPowerAttackInstructions = "Attack raids using the x5 button. (Not recommended).",
                     raidOrderInstructions = "List of search words that decide which " +
                         "raids to participate in first.  Use words in player name or in " +
                         "raid name. To specify max damage follow keyword with :max token " +
@@ -10167,7 +10166,8 @@
                 htmlCode += caap.MakeNumberFormTR("Higher Than X*Army", 'FreshMeatARBase', FMARBaseInstructions, 0.5, '', '');
                 htmlCode += caap.endDropHide('TargetType', 'Freshmeat');
                 htmlCode += caap.startDropHide('TargetType', 'Raid', 'Raid', false);
-                htmlCode += caap.MakeCheckTR("Attempt +1 Kills", 'PlusOneKills', false, plusonekillsInstructions);
+                htmlCode += caap.MakeCheckTR("Power Attack", 'RaidPowerAttack', false, raidPowerAttackInstructions, true);
+                htmlCode += caap.MakeCheckTR("Attempt +1 Kills", 'PlusOneKills', false, plusonekillsInstructions, true);
                 htmlCode += caap.MakeTD("Join Raids in this order <a href='http://senses.ws/caap/index.php?topic=1502.0' target='_blank' style='color: blue'>(INFO)</a>");
                 htmlCode += caap.MakeTextBox('orderraid', raidOrderInstructions, '');
                 htmlCode += caap.endDropHide('TargetType', 'Raid');
@@ -16795,21 +16795,21 @@
                 switch (battletype) {
                 case 'Invade' :
                     useGeneral = 'InvadeGeneral';
-                    staminaReq = 1;
+                    staminaReq = target === 'raid' ? state.getItem('RaidStaminaReq', 1) : 1;
                     chainImg = 'battle_invade_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
                 case 'Duel' :
                     useGeneral = 'DuelGeneral';
-                    staminaReq = 1;
+                    staminaReq = target === 'raid' ? state.getItem('RaidStaminaReq', 1) : 1;
                     chainImg = 'battle_duel_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
@@ -16819,7 +16819,7 @@
                     chainImg = 'battle_duel_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
@@ -16829,14 +16829,12 @@
                 }
 
                 if (!caap.CheckStamina('Battle', staminaReq)) {
-                    $u.log(9, 'Not enough stamina for ', battletype);
+                    $u.log(3, 'Not enough stamina for ', battletype, staminaReq);
                     return false;
-                } else if (general.Select(useGeneral)) {
-                    return true;
                 }
 
                 // Check if we should chain attack
-                if ($j("#" + caap.domain.id[caap.domain.which] + "results_main_wrapper img[src*='battle_victory.gif']").length) {
+                if ($u.hasContent($j("#" + caap.domain.id[caap.domain.which] + "results_main_wrapper img[src*='battle_victory.gif']", caap.globalContainer))) {
                     button = caap.CheckForImage(chainImg);
                     battleChainId = state.getItem("BattleChainId", 0);
                     if ($u.hasContent(button) && battleChainId) {
@@ -16846,6 +16844,8 @@
                         state.setItem("BattleChainId", 0);
                         return true;
                     }
+
+                    state.setItem("BattleChainId", 0);
                 }
 
                 if (!state.getItem("notSafeCount", 0)) {
@@ -16860,6 +16860,10 @@
                         rejoinSecs = ((schedule.getItem("RaidNoTargetDelay").next - new Date().getTime()) / 1000).dp() + ' secs';
                         $u.log(2, 'Rejoining the raid in', rejoinSecs);
                         caap.SetDivContent('battle_mess', 'Joining the Raid in ' + rejoinSecs);
+                        return false;
+                    }
+
+                    if (general.Select(useGeneral)) {
                         return true;
                     }
 
@@ -16914,6 +16918,10 @@
 
                     return battle.freshmeat('Raid');
                 case 'freshmeat' :
+                    if (general.Select(useGeneral)) {
+                        return true;
+                    }
+
                     if (caap.NavigateTo(caap.battlePage, 'battle_on.gif')) {
                         return true;
                     }
@@ -16963,11 +16971,15 @@
                         }
                     }
 
+                    if (general.Select(useGeneral)) {
+                        return true;
+                    }
+
                     if (caap.NavigateTo(caap.battlePage, 'battle_on.gif')) {
                         return true;
                     }
 
-                    state.setItem('BattleChainId', 0);
+                    //state.setItem('BattleChainId', 0);
                     if (caap.BattleUserId(target)) {
                         battle.nextTarget();
                         return true;

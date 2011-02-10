@@ -1054,8 +1054,7 @@
                             default:
                             }
                         } else {
-                            // Switch RaidPowerAttack - RaidStaminaReq is not being used - bug?
-                            if (gm.getItem('RaidPowerAttack', false, hiddenVar) || /:pa/i.test(monsterObj['conditions'])) {
+                            if (config.getItem('RaidPowerAttack', false) || /:pa/i.test(monsterObj['conditions'])) {
                                 state.setItem('RaidStaminaReq', 5);
                             } else if (monster.info[monsterObj['type']] && monster.info[monsterObj['type']].staUse) {
                                 state.setItem('RaidStaminaReq', monster.info[monsterObj['type']].staUse);

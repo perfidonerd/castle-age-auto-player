@@ -1343,6 +1343,7 @@
                         " of targets are withn freshmeat settings. Note: Since Castle Age" +
                         " choses the target, selecting this option could result in a " +
                         "greater chance of loss.",
+                    raidPowerAttackInstructions = "Attack raids using the x5 button. (Not recommended).",
                     raidOrderInstructions = "List of search words that decide which " +
                         "raids to participate in first.  Use words in player name or in " +
                         "raid name. To specify max damage follow keyword with :max token " +
@@ -1424,7 +1425,8 @@
                 htmlCode += caap.MakeNumberFormTR("Higher Than X*Army", 'FreshMeatARBase', FMARBaseInstructions, 0.5, '', '');
                 htmlCode += caap.endDropHide('TargetType', 'Freshmeat');
                 htmlCode += caap.startDropHide('TargetType', 'Raid', 'Raid', false);
-                htmlCode += caap.MakeCheckTR("Attempt +1 Kills", 'PlusOneKills', false, plusonekillsInstructions);
+                htmlCode += caap.MakeCheckTR("Power Attack", 'RaidPowerAttack', false, raidPowerAttackInstructions, true);
+                htmlCode += caap.MakeCheckTR("Attempt +1 Kills", 'PlusOneKills', false, plusonekillsInstructions, true);
                 htmlCode += caap.MakeTD("Join Raids in this order <a href='http://senses.ws/caap/index.php?topic=1502.0' target='_blank' style='color: blue'>(INFO)</a>");
                 htmlCode += caap.MakeTextBox('orderraid', raidOrderInstructions, '');
                 htmlCode += caap.endDropHide('TargetType', 'Raid');
@@ -8052,21 +8054,21 @@
                 switch (battletype) {
                 case 'Invade' :
                     useGeneral = 'InvadeGeneral';
-                    staminaReq = 1;
+                    staminaReq = target === 'raid' ? state.getItem('RaidStaminaReq', 1) : 1;
                     chainImg = 'battle_invade_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
                 case 'Duel' :
                     useGeneral = 'DuelGeneral';
-                    staminaReq = 1;
+                    staminaReq = target === 'raid' ? state.getItem('RaidStaminaReq', 1) : 1;
                     chainImg = 'battle_duel_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
@@ -8076,7 +8078,7 @@
                     chainImg = 'battle_duel_again.gif';
                     if (general.LevelUpCheck(useGeneral)) {
                         useGeneral = 'LevelUpGeneral';
-                        $u.log(2, 'Using level up general');
+                        $u.log(3, 'Using level up general');
                     }
 
                     break;
@@ -8086,14 +8088,12 @@
                 }
 
                 if (!caap.CheckStamina('Battle', staminaReq)) {
-                    $u.log(9, 'Not enough stamina for ', battletype);
+                    $u.log(3, 'Not enough stamina for ', battletype, staminaReq);
                     return false;
-                } else if (general.Select(useGeneral)) {
-                    return true;
                 }
 
                 // Check if we should chain attack
-                if ($j("#" + caap.domain.id[caap.domain.which] + "results_main_wrapper img[src*='battle_victory.gif']").length) {
+                if ($u.hasContent($j("#" + caap.domain.id[caap.domain.which] + "results_main_wrapper img[src*='battle_victory.gif']", caap.globalContainer))) {
                     button = caap.CheckForImage(chainImg);
                     battleChainId = state.getItem("BattleChainId", 0);
                     if ($u.hasContent(button) && battleChainId) {
@@ -8103,6 +8103,8 @@
                         state.setItem("BattleChainId", 0);
                         return true;
                     }
+
+                    state.setItem("BattleChainId", 0);
                 }
 
                 if (!state.getItem("notSafeCount", 0)) {
@@ -8117,6 +8119,10 @@
                         rejoinSecs = ((schedule.getItem("RaidNoTargetDelay").next - new Date().getTime()) / 1000).dp() + ' secs';
                         $u.log(2, 'Rejoining the raid in', rejoinSecs);
                         caap.SetDivContent('battle_mess', 'Joining the Raid in ' + rejoinSecs);
+                        return false;
+                    }
+
+                    if (general.Select(useGeneral)) {
                         return true;
                     }
 
@@ -8171,6 +8177,10 @@
 
                     return battle.freshmeat('Raid');
                 case 'freshmeat' :
+                    if (general.Select(useGeneral)) {
+                        return true;
+                    }
+
                     if (caap.NavigateTo(caap.battlePage, 'battle_on.gif')) {
                         return true;
                     }
@@ -8220,11 +8230,15 @@
                         }
                     }
 
+                    if (general.Select(useGeneral)) {
+                        return true;
+                    }
+
                     if (caap.NavigateTo(caap.battlePage, 'battle_on.gif')) {
                         return true;
                     }
 
-                    state.setItem('BattleChainId', 0);
+                    //state.setItem('BattleChainId', 0);
                     if (caap.BattleUserId(target)) {
                         battle.nextTarget();
                         return true;
