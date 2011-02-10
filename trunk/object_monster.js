@@ -910,11 +910,11 @@
                                 if (monsterObj['over'] === 'ach') {
                                     if (!firstOverAch) {
                                         firstOverAch = monsterList[selectTypes[s]][m];
-                                        $u.log(2, 'firstOverAch', firstOverAch);
+                                        $u.log(3, 'firstOverAch', firstOverAch);
                                     }
                                 } else if (monsterObj['over'] !== 'max') {
                                     firstUnderMax = monsterList[selectTypes[s]][m];
-                                    $u.log(2, 'firstUnderMax', firstUnderMax);
+                                    $u.log(3, 'firstUnderMax', firstUnderMax);
                                 }
                             }
 

@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            45
+// @dev            46
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "45",
+        devVersion    = "46",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -2978,11 +2978,11 @@
                                 if (monsterObj['over'] === 'ach') {
                                     if (!firstOverAch) {
                                         firstOverAch = monsterList[selectTypes[s]][m];
-                                        $u.log(2, 'firstOverAch', firstOverAch);
+                                        $u.log(3, 'firstOverAch', firstOverAch);
                                     }
                                 } else if (monsterObj['over'] !== 'max') {
                                     firstUnderMax = monsterList[selectTypes[s]][m];
-                                    $u.log(2, 'firstUnderMax', firstUnderMax);
+                                    $u.log(3, 'firstUnderMax', firstUnderMax);
                                 }
                             }
 
@@ -5815,7 +5815,6 @@
                 }
 
                 battle.setItem(battleRecord);
-                $u.log(1, "getResult returning", result, battleRecord);
                 return result;
             } catch (err) {
                 $u.error("ERROR in battle.getResult: " + err);
@@ -5894,7 +5893,6 @@
                 }
 
                 result = battle.getResult();
-                $u.log(2, "result", result);
                 if (!result || result.hiding === true) {
                     return true;
                 }
@@ -6179,7 +6177,7 @@
                     tempArr = [];
                     tempTime = -1;
                     tempRecord = new battle.record();
-                    tempRecord.data['button'] = inputDiv.eq(it);
+                    tempRecord.data['button'] = $j(inputDiv.eq(it));
                     if (type === 'Raid') {
                         tr = tempRecord.data['button'].parents().eq(4);
                         txt = $u.setContent(tr.children().eq(1).text(), '').trim();
@@ -7365,8 +7363,6 @@
 
                                 return true;
                             } catch (e) {
-                                // This can happen when FB mess up the DOM on the requests page
-                                // NOT_FOUND_ERR code 8
                                 $u.warn("ERROR in gifting.collect: skipping" + e);
                                 return true;
                             }
@@ -10913,7 +10909,7 @@
                 /*-------------------------------------------------------------------------------------\
                  Then we put in the Live Feed link since we overlay the Castle Age link.
                 \-------------------------------------------------------------------------------------*/
-                layout += "<div id='caap_buttonFeed' style='position:absolute;top:0px;left:60px;'><input id='caap_crusaders' type='button' value='Crusaders' style='padding: 0; font-size: 9px; height: 18px' /></div>";
+                layout += "<div id='caap_buttonFeed' style='position:absolute;top:0px;left:80px;'><input id='caap_crusaders' type='button' value='Crusaders' style='padding: 0; font-size: 9px; height: 18px' /></div>";
                 /*-------------------------------------------------------------------------------------\
                  We install the display selection box that allows the user to toggle through the
                  available displays.
@@ -17580,11 +17576,11 @@
                         monsterReviewed['color'] = 'grey';
                         break;
                     case 'dragon_list_btn_3' :
-                        monster.engageButtons[monsterName] = buttonsDiv.eq(it);
+                        monster.engageButtons[monsterName] = $j(buttonsDiv.eq(it));
                         break;
                     case 'dragon_list_btn_4' :
                         if (page === 'raid' && !(/!/.test(monsterFull))) {
-                            monster.engageButtons[monsterName] = buttonsDiv.eq(it);
+                            monster.engageButtons[monsterName] = $j(buttonsDiv.eq(it));
                             break;
                         }
 

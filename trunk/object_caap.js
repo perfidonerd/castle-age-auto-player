@@ -2172,7 +2172,7 @@
                 /*-------------------------------------------------------------------------------------\
                  Then we put in the Live Feed link since we overlay the Castle Age link.
                 \-------------------------------------------------------------------------------------*/
-                layout += "<div id='caap_buttonFeed' style='position:absolute;top:0px;left:60px;'><input id='caap_crusaders' type='button' value='Crusaders' style='padding: 0; font-size: 9px; height: 18px' /></div>";
+                layout += "<div id='caap_buttonFeed' style='position:absolute;top:0px;left:80px;'><input id='caap_crusaders' type='button' value='Crusaders' style='padding: 0; font-size: 9px; height: 18px' /></div>";
                 /*-------------------------------------------------------------------------------------\
                  We install the display selection box that allows the user to toggle through the
                  available displays.
@@ -8839,11 +8839,11 @@
                         monsterReviewed['color'] = 'grey';
                         break;
                     case 'dragon_list_btn_3' :
-                        monster.engageButtons[monsterName] = buttonsDiv.eq(it);
+                        monster.engageButtons[monsterName] = $j(buttonsDiv.eq(it));
                         break;
                     case 'dragon_list_btn_4' :
                         if (page === 'raid' && !(/!/.test(monsterFull))) {
-                            monster.engageButtons[monsterName] = buttonsDiv.eq(it);
+                            monster.engageButtons[monsterName] = $j(buttonsDiv.eq(it));
                             break;
                         }
 
