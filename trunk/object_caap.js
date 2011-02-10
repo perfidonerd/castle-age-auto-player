@@ -1986,6 +1986,7 @@
                     recipeCleanCountInstructions = "The number of items to be owned before cleaning the recipe item from the Alchemy page.",
                     bookmarkModeInstructions = "Enable this if you are running CAAP from a bookmark. Disables refreshes and gifting. Note: not recommended for long term operation.",
                     levelupModeInstructions = "Calculates approx. how many XP points you will get from your current stamina and energy and when you have enough of each to level up it will start using them down to 0.",
+                    serializeInstructions = "Setting this value allows you to define your Raids and Monsters all within either the Monster Attack Order or Raid Attack Order list boxes. Selection is serialized so that you only have a single selection from the list active at one time.  This is in contrast to the default mode, where you can have an active Raid and an active Monster, both processing independently.",
                     styleList = [
                         'CA Skin',
                         'Original',
@@ -2026,6 +2027,7 @@
                 htmlCode += caap.endDropHide('DisplayStyle');
                 //htmlCode += $u.is_chrome && $u.inputtypes.number ? caap.MakeCheckTR('Number Roller', 'numberRoller', true, "Enable or disable the number roller on GUI options.") : '';
                 htmlCode += caap.MakeCheckTR('Enable Level Up Mode', 'EnableLevelUpMode', true, levelupModeInstructions);
+                htmlCode += caap.MakeCheckTR('Serialize Raid and Monster', 'SerializeRaidsAndMonsters', false, serializeInstructions);
                 htmlCode += caap.MakeCheckTR('Bookmark Mode', 'bookmarkMode', false, bookmarkModeInstructions);
                 htmlCode += caap.MakeCheckTR('Change Log Level', 'ChangeLogLevel', false);
                 htmlCode += caap.startCheckHide('ChangeLogLevel');
@@ -7961,6 +7963,7 @@
                     raidName      = '',
                     battleChainId = 0,
                     targetMonster = '',
+                    targetRaid    = '',
                     whenMonster   = '',
                     targetType    = '',
                     rejoinSecs    = '',
@@ -7979,6 +7982,7 @@
                 whenBattle = config.getItem('WhenBattle', 'Never');
                 whenMonster = config.getItem('WhenMonster', 'Never');
                 targetMonster = state.getItem('targetFrombattle_monster', '');
+                targetRaid = state.getItem('targetFromraid', '');
                 switch (whenBattle) {
                 case 'Never' :
                     caap.SetDivContent('battle_mess', 'Battle off');
@@ -7993,7 +7997,8 @@
                     break;
                 case 'No Monster' :
                     if (mode !== 'DemiPoints') {
-                        if (whenMonster !== 'Never' && targetMonster && !targetMonster.match(/the deathrune siege/i)) {
+                        if (whenMonster !== 'Never' && targetMonster && !/the deathrune siege/i.test(targetMonster)) {
+                            $u.log(1, "Here2.5", targetMonster, state.getItem('targetFromraid', ''), state.getItem('targetFromraid', ''));
                             return false;
                         }
                     }

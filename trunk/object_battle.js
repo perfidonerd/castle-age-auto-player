@@ -881,6 +881,7 @@
                     tempRecord = new battle.record();
                     tempRecord.data['button'] = inputDiv.eq(it);
                     if (type === 'Raid') {
+                        tr = tempRecord.data['button'].parents().eq(4);
                         txt = $u.setContent(tr.children().eq(1).text(), '').trim();
                         levelm = battle.battles['Raid']['regex1'].exec(txt);
                         if (!$u.hasContent(levelm)) {

@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            43
+// @dev            44
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "43",
+        devVersion    = "44",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -2298,7 +2298,7 @@
             'Raid II'   : {
                 duration     : 144,
                 raid         : true,
-                ach          : 50,
+                ach          : 100,
                 siege        : 2,
                 siegeClicks  : [80, 100],
                 siegeDam     : [300, 1500],
@@ -2901,7 +2901,7 @@
                 //one "targetFromxxxx" to fill in. The other MUST be left blank. This is what keeps it
                 //serialized!!! Trying to make this two pass logic is like trying to fit a square peg in
                 //a round hole. Please reconsider before doing so.
-                if (gm.getItem('SerializeRaidsAndMonsters', false, hiddenVar)) {
+                if (config.getItem('SerializeRaidsAndMonsters', false)) {
                     selectTypes = ['any'];
                 } else {
                     selectTypes = ['battle_monster', 'raid'];
@@ -2978,11 +2978,11 @@
                                 if (monsterObj['over'] === 'ach') {
                                     if (!firstOverAch) {
                                         firstOverAch = monsterList[selectTypes[s]][m];
-                                        $u.log(3, 'firstOverAch', firstOverAch);
+                                        $u.log(2, 'firstOverAch', firstOverAch);
                                     }
                                 } else if (monsterObj['over'] !== 'max') {
                                     firstUnderMax = monsterList[selectTypes[s]][m];
-                                    $u.log(3, 'firstUnderMax', firstUnderMax);
+                                    $u.log(2, 'firstUnderMax', firstUnderMax);
                                 }
                             }
 
@@ -6177,6 +6177,7 @@
                     tempRecord = new battle.record();
                     tempRecord.data['button'] = inputDiv.eq(it);
                     if (type === 'Raid') {
+                        tr = tempRecord.data['button'].parents().eq(4);
                         txt = $u.setContent(tr.children().eq(1).text(), '').trim();
                         levelm = battle.battles['Raid']['regex1'].exec(txt);
                         if (!$u.hasContent(levelm)) {
@@ -10728,6 +10729,7 @@
                     recipeCleanCountInstructions = "The number of items to be owned before cleaning the recipe item from the Alchemy page.",
                     bookmarkModeInstructions = "Enable this if you are running CAAP from a bookmark. Disables refreshes and gifting. Note: not recommended for long term operation.",
                     levelupModeInstructions = "Calculates approx. how many XP points you will get from your current stamina and energy and when you have enough of each to level up it will start using them down to 0.",
+                    serializeInstructions = "Setting this value allows you to define your Raids and Monsters all within either the Monster Attack Order or Raid Attack Order list boxes. Selection is serialized so that you only have a single selection from the list active at one time.  This is in contrast to the default mode, where you can have an active Raid and an active Monster, both processing independently.",
                     styleList = [
                         'CA Skin',
                         'Original',
@@ -10768,6 +10770,7 @@
                 htmlCode += caap.endDropHide('DisplayStyle');
                 //htmlCode += $u.is_chrome && $u.inputtypes.number ? caap.MakeCheckTR('Number Roller', 'numberRoller', true, "Enable or disable the number roller on GUI options.") : '';
                 htmlCode += caap.MakeCheckTR('Enable Level Up Mode', 'EnableLevelUpMode', true, levelupModeInstructions);
+                htmlCode += caap.MakeCheckTR('Serialize Raid and Monster', 'SerializeRaidsAndMonsters', false, serializeInstructions);
                 htmlCode += caap.MakeCheckTR('Bookmark Mode', 'bookmarkMode', false, bookmarkModeInstructions);
                 htmlCode += caap.MakeCheckTR('Change Log Level', 'ChangeLogLevel', false);
                 htmlCode += caap.startCheckHide('ChangeLogLevel');
@@ -16703,6 +16706,7 @@
                     raidName      = '',
                     battleChainId = 0,
                     targetMonster = '',
+                    targetRaid    = '',
                     whenMonster   = '',
                     targetType    = '',
                     rejoinSecs    = '',
@@ -16721,6 +16725,7 @@
                 whenBattle = config.getItem('WhenBattle', 'Never');
                 whenMonster = config.getItem('WhenMonster', 'Never');
                 targetMonster = state.getItem('targetFrombattle_monster', '');
+                targetRaid = state.getItem('targetFromraid', '');
                 switch (whenBattle) {
                 case 'Never' :
                     caap.SetDivContent('battle_mess', 'Battle off');
@@ -16735,7 +16740,8 @@
                     break;
                 case 'No Monster' :
                     if (mode !== 'DemiPoints') {
-                        if (whenMonster !== 'Never' && targetMonster && !targetMonster.match(/the deathrune siege/i)) {
+                        if (whenMonster !== 'Never' && targetMonster && !/the deathrune siege/i.test(targetMonster)) {
+                            $u.log(1, "Here2.5", targetMonster, state.getItem('targetFromraid', ''), state.getItem('targetFromraid', ''));
                             return false;
                         }
                     }

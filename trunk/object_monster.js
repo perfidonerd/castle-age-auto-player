@@ -230,7 +230,7 @@
             'Raid II'   : {
                 duration     : 144,
                 raid         : true,
-                ach          : 50,
+                ach          : 100,
                 siege        : 2,
                 siegeClicks  : [80, 100],
                 siegeDam     : [300, 1500],
@@ -833,7 +833,7 @@
                 //one "targetFromxxxx" to fill in. The other MUST be left blank. This is what keeps it
                 //serialized!!! Trying to make this two pass logic is like trying to fit a square peg in
                 //a round hole. Please reconsider before doing so.
-                if (gm.getItem('SerializeRaidsAndMonsters', false, hiddenVar)) {
+                if (config.getItem('SerializeRaidsAndMonsters', false)) {
                     selectTypes = ['any'];
                 } else {
                     selectTypes = ['battle_monster', 'raid'];
@@ -910,11 +910,11 @@
                                 if (monsterObj['over'] === 'ach') {
                                     if (!firstOverAch) {
                                         firstOverAch = monsterList[selectTypes[s]][m];
-                                        $u.log(3, 'firstOverAch', firstOverAch);
+                                        $u.log(2, 'firstOverAch', firstOverAch);
                                     }
                                 } else if (monsterObj['over'] !== 'max') {
                                     firstUnderMax = monsterList[selectTypes[s]][m];
-                                    $u.log(3, 'firstUnderMax', firstUnderMax);
+                                    $u.log(2, 'firstUnderMax', firstUnderMax);
                                 }
                             }
 
