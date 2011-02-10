@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            46
+// @dev            47
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "46",
+        devVersion    = "47",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -14761,7 +14761,7 @@
                     tNum    = 0;
 
                 if ($u.hasContent(rankDiv)) {
-                    tNum = rankDiv.text().regex(/with ([\d,]+) Battle Points/i).numberOnly();
+                    tNum = $u.setContent($u.setContent(rankDiv.text(), '').replace(',', '').regex(/with (\d+) Battle Points/i), 0);
                     if ($u.hasContent(tNum)) {
                         $u.log(2, 'Got Battle Rank Points', tNum);
                         caap.stats['rank']['battlePoints'] = tNum;
@@ -14787,7 +14787,7 @@
                     tNum    = 0;
 
                 if ($u.hasContent(rankDiv)) {
-                    tNum = rankDiv.text().regex(/with ([\d,]+) War Points/i).numberOnly();
+                    tNum = $u.setContent($u.setContent(rankDiv.text(), '').replace(',', '').regex(/with (\d+) War Points/i), 0);
                     if ($u.hasContent(tNum)) {
                         $u.log(2, 'Got War Rank Points', tNum);
                         caap.stats['rank']['warPoints'] = tNum;

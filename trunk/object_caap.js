@@ -6024,7 +6024,7 @@
                     tNum    = 0;
 
                 if ($u.hasContent(rankDiv)) {
-                    tNum = rankDiv.text().regex(/with ([\d,]+) Battle Points/i).numberOnly();
+                    tNum = $u.setContent($u.setContent(rankDiv.text(), '').replace(',', '').regex(/with (\d+) Battle Points/i), 0);
                     if ($u.hasContent(tNum)) {
                         $u.log(2, 'Got Battle Rank Points', tNum);
                         caap.stats['rank']['battlePoints'] = tNum;
@@ -6050,7 +6050,7 @@
                     tNum    = 0;
 
                 if ($u.hasContent(rankDiv)) {
-                    tNum = rankDiv.text().regex(/with ([\d,]+) War Points/i).numberOnly();
+                    tNum = $u.setContent($u.setContent(rankDiv.text(), '').replace(',', '').regex(/with (\d+) War Points/i), 0);
                     if ($u.hasContent(tNum)) {
                         $u.log(2, 'Got War Rank Points', tNum);
                         caap.stats['rank']['warPoints'] = tNum;
