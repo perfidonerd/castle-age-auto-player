@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.24.1
-// @dev            52
+// @dev            53
 // @require        http://castle-age-auto-player.googlecode.com/files/jquery-1.4.4.min.js
 // @require        http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js
 // @require        http://castle-age-auto-player.googlecode.com/files/farbtastic.min.js
@@ -27,7 +27,7 @@
 (function () {
 
     var caapVersion   = "140.24.1",
-        devVersion    = "52",
+        devVersion    = "53",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -13580,6 +13580,7 @@
             "symbols",
             "treasure_chest",
             "gift",
+            "war_council",
             "apprentice",
             "news",
             "friend_page",
@@ -21445,7 +21446,7 @@
                     w = $j("#caap_export");
 
                 if (!$u.hasContent(w)) {
-                    h = "<textarea style='resize:none;width:400px;height:400px;' disabled>" + JSON.stringify(data, null, "\t") + "</textarea>";
+                    h = "<textarea style='resize:none;width:400px;height:400px;' readonly='readonly'>" + JSON.stringify(data, null, "\t") + "</textarea>";
                     w = $j('<div id="caap_export" title="Export ' + title + ' Data">' + h + '</div>').appendTo(document.body);
                     w.dialog({
                         resizable : false,

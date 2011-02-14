@@ -4843,6 +4843,7 @@
             "symbols",
             "treasure_chest",
             "gift",
+            "war_council",
             "apprentice",
             "news",
             "friend_page",
@@ -12708,7 +12709,7 @@
                     w = $j("#caap_export");
 
                 if (!$u.hasContent(w)) {
-                    h = "<textarea style='resize:none;width:400px;height:400px;' disabled>" + JSON.stringify(data, null, "\t") + "</textarea>";
+                    h = "<textarea style='resize:none;width:400px;height:400px;' readonly='readonly'>" + JSON.stringify(data, null, "\t") + "</textarea>";
                     w = $j('<div id="caap_export" title="Export ' + title + ' Data">' + h + '</div>').appendTo(document.body);
                     w.dialog({
                         resizable : false,
