@@ -6416,12 +6416,17 @@
                 default :
                 }
 
-                var button = caap.CheckForImage('quick_switch_button.gif');
-                if ($u.hasContent(button) && !config.getItem('ForceSubGeneral', false)) {
-                    $u.log(2, 'Clicking on quick switch general button.');
-                    caap.Click(button);
-                    general.quickSwitch = true;
-                    return true;
+                var bDiv = $j("#" + caap.domain.id[caap.domain.which] + "single_popup", caap.globalContainer);
+                var bDisp = $u.setContent(bDiv.css("display"), 'none');
+                if (bDiv !== 'none') {
+                    //var button = caap.CheckForImage('quick_switch_button.gif');
+                    var button = $j("input[src*='quick_switch_button.gif']", bDiv);
+                    if ($u.hasContent(button) && !config.getItem('ForceSubGeneral', false)) {
+                        $u.log(2, 'Clicking on quick switch general button.');
+                        caap.Click(button);
+                        general.quickSwitch = true;
+                        return true;
+                    }
                 }
 
                 if (general.quickSwitch) {
@@ -6604,7 +6609,7 @@
                     caap.BlessingResults(resultsText);
                 }
 
-                demiDiv = $j("div[id*='" + caap.domain.id[caap.domain.which] + "symbol_desc_symbolquests']");
+                demiDiv = $j("div[id*='symbol_desc_symbolquests']");
                 if ($u.hasContent(demiDiv) && demiDiv.length === 5) {
                     demiDiv.each(function () {
                         var text = '',
@@ -6676,10 +6681,10 @@
                 //$u.log(1, "CheckResults_quests pickQuestTF", pickQuestTF);
                 pickQuestTF = pickQuestTF ? pickQuestTF : false;
                 if ($u.hasContent($j("#" + caap.domain.id[caap.domain.which] + "quest_map_container", caap.globalContainer))) {
-                    $j("div[id*='" + caap.domain.id[caap.domain.which] + "meta_quest_']", caap.globalContainer).each(function (index) {
+                    $j("div[id*='meta_quest_']", caap.globalContainer).each(function (index) {
                         var row = $j(this);
                         if (!($u.hasContent($j("img[src*='_completed']", row)) || $u.hasContent($j("img[src*='_locked']", row)))) {
-                            $j("div[id='" + caap.domain.id[caap.domain.which] + "quest_wrapper_" + row.attr("id").replace(caap.domain.id[caap.domain.which] + "meta_quest_", '') + "']", caap.globalContainer).css("display", "block");
+                            $j("div[id*='quest_wrapper_" + row.attr("id").replace(caap.domain.id[caap.domain.which] + "meta_quest_", '') + "']", caap.globalContainer).css("display", "block");
                         }
                     });
                 }
@@ -6700,7 +6705,7 @@
 
                 if (caap.HasImage('demi_quest_on.gif')) {
                     caap.CheckResults_symbolquests($u.isString(pickQuestTF) ? pickQuestTF : undefined);
-                    $j("div[id*='" + caap.domain.id[caap.domain.which] + "symbol_tab_symbolquests']", caap.globalContainer).unbind('click', caap.symbolquestsListener).bind('click', caap.symbolquestsListener);
+                    $j("div[id*='symbol_tab_symbolquests']", caap.globalContainer).unbind('click', caap.symbolquestsListener).bind('click', caap.symbolquestsListener);
                     ss = $j("div[id*='symbol_displaysymbolquest']", caap.globalContainer);
                     if (!$u.hasContent(ss)) {
                         $u.warn("Failed to find symbol_displaysymbolquest");
@@ -6715,10 +6720,10 @@
                         return true;
                     });
                 } else {
-                    div = $j(document.body);
+                    div = caap.globalContainer;
                 }
 
-                ss = $j("div[class*='quests_background']", div);
+                ss = $j(".quests_background,.quests_background_sub", div);
                 if (!$u.hasContent(ss)) {
                     $u.warn("Failed to find quests_background");
                     return false;
@@ -6754,7 +6759,7 @@
                     orbCheck : false
                 };
 
-                $j("div[class='autoquest']", caap.globalContainer).remove();
+                $j(".autoquest", caap.globalContainer).remove();
                 var expRegExp       = new RegExp("\\+(\\d+)"),
                     energyRegExp    = new RegExp("(\\d+)\\s+energy", "i"),
                     moneyRegExp     = new RegExp("\\$([0-9,]+)\\s*-\\s*\\$([0-9,]+)", "i"),
@@ -6775,12 +6780,12 @@
                         expM       = [],
                         tStr       = '';
 
-                    divTxt = div.text();
+                    divTxt = div.text().trim().innerTrim();
                     expM = divTxt ? divTxt.match(expRegExp) : [];
                     if (expM && expM.length === 2) {
                         experience = expM[1] ? expM[1].numberOnly() : 0;
                     } else {
-                        var expObj = $j("div[class='quest_experience']", caap.globalContainer);
+                        var expObj = $j(".quest_experience", div);
                         if ($u.hasContent(expObj)) {
                             tStr = expObj.text();
                             experience = tStr ? tStr.numberOnly() : 0;
@@ -6798,7 +6803,7 @@
                     if (energyM && energyM.length === 2) {
                         energy = energyM[1] ? energyM[1].numberOnly() : 0;
                     } else {
-                        var eObj = $j("div[class*='quest_req']", div);
+                        var eObj = $j(".quest_req", div);
                         if ($u.hasContent(eObj)) {
                             energy = $j('b', eObj).eq(0).text().numberOnly();
                         }
@@ -6829,7 +6834,7 @@
                         }
                     }
 
-                    var click = $j("input[name*='Do Quest']", div);
+                    var click = $j("input[name='Do Quest']", div);
                     if (!$u.hasContent(click)) {
                         $u.warn('No button found for', caap.questName);
                         return true;
@@ -6837,7 +6842,7 @@
 
                     var influence = -1;
                     if (caap.isBossQuest(caap.questName)) {
-                        if ($u.hasContent($j("div[class='quests_background_sub']", caap.globalContainer))) {
+                        if ($u.hasContent($j(".quests_background_sub", div))) {
                             //if boss and found sub quests
                             influence = 100;
                         } else {
@@ -6860,7 +6865,7 @@
                         genDiv  = $j();
 
                     if (influence >= 0 && influence < 100) {
-                        genDiv = $j("div[class*='quest_act_gen']", div);
+                        genDiv = $j(".quest_act_gen", div);
                         if ($u.hasContent(genDiv)) {
                             genDiv = $j("img[src*='jpg']", genDiv);
                             if ($u.hasContent(genDiv)) {
@@ -7035,7 +7040,7 @@
 
         GetQuestName: function (questDiv) {
             try {
-                var item_title = $j("div[class*='quest_desc'],div[class*='quest_sub_title']", questDiv),
+                var item_title = $j(".quest_desc,.quest_sub_title", questDiv),
                     firstb     = $j("b", item_title).eq(0),
                     text       = '';
 
@@ -7216,7 +7221,7 @@
 
         LabelQuests: function (div, energy, reward, experience, click) {
             try {
-                if ($u.hasContent($j("div[class='autoquest'", div))) {
+                if ($u.hasContent($j("div[class='autoquest']", div))) {
                     return;
                 }
 
@@ -7390,8 +7395,7 @@
                 function SelectLands(div, val, type) {
                     try {
                         type = type ? type : 'Buy';
-                        var selects = $j();
-                        selects = $j("select", div);
+                        var selects = $j("select", div);
                         if (!$u.hasContent(selects)) {
                             $u.warn(type + " select not found!");
                             return false;

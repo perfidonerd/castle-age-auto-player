@@ -211,9 +211,9 @@
                 duration     : 232,
                 raid         : true,
                 ach          : 100,
-                siege        : 4,
-                siegeClicks  : [30, 50, 80, 100],
-                siegeDam     : [200, 500, 300, 1500],
+                siege        : 2,
+                siegeClicks  : [30, 100],
+                siegeDam     : [300, 1500],
                 siege_img    : ['/graphics/monster_siege_'],
                 staUse       : 1
             },
@@ -221,9 +221,9 @@
                 duration     : 88,
                 raid         : true,
                 ach          : 50,
-                siege        : 2,
-                siegeClicks  : [30, 50],
-                siegeDam     : [200, 500],
+                siege        : 1,
+                siegeClicks  : [30],
+                siegeDam     : [300],
                 siege_img    : ['/graphics/monster_siege_'],
                 staUse       : 1
             },
@@ -232,7 +232,7 @@
                 raid         : true,
                 ach          : 100,
                 siege        : 2,
-                siegeClicks  : [80, 100],
+                siegeClicks  : [30, 100],
                 siegeDam     : [300, 1500],
                 siege_img    : ['/graphics/monster_siege_'],
                 staUse       : 1
@@ -730,7 +730,7 @@
                 T2K = T2K.dp(2);
                 $u.log(3, 'T2K based on siege: ', $u.minutes2hours(T2K));
                 $u.log(3, 'T2K estimate without calculating siege impacts: ', $u.minutes2hours(siegeImpacts));
-                return T2K ? T2k : siegeImpacts;
+                return T2K ? T2K : siegeImpacts;
             } catch (err) {
                 $u.error("ERROR in monster.t2kCalc: " + err);
                 return 0;
