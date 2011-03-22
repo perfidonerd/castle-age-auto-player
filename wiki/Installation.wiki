@@ -3,10 +3,42 @@
 
 = Introduction =
 
-Add your content here.
+Details on installing the the release script for the supported browsers.
 
 
-= Details =
+= Chrome =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+= FireFox =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+= Opera =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+= Safari =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+
+= Internet Explorer =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
