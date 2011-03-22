@@ -1,5 +1,5 @@
 #labels Phase-Deploy
-#Details on installing the the release script for FireFox.
+Details on installing the the release script for FireFox.
 
 = Introduction =
 
