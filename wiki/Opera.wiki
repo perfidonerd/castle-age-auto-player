@@ -1,5 +1,5 @@
+#summary Details on installing the the release script for Opera.
 #labels Phase-Deploy
-#Details on installing the the release script for Opera.
 
 = Introduction =
 
