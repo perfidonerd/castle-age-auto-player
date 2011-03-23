@@ -22,6 +22,7 @@ http://www.ie7pro.com/
 #5 After you Are able to open the IE7Pro preferences on the left side you should see where it says "User Scripts". Click that to show you what scripts you have. IE7Pro comes preloaded with several scripts that you have to manually click a checkbox to activate. You can delete all of those, or decide to try them yourself. That is up to you.
 
 #6 Now onto CAAP. To run CAAP on IE you first have to download and save the CAAP file. In IE when you try to download the CAAP file it should open a page that looks like a Microsoft Word document. From the toolbar again, click "File" and "Save As". Save it to somewhere that is easily accessible such as "My Documents". Don't rename the CAAP file, or it may not work.
+http://castle-age-auto-player.googlecode.com/svn/trunk/IE/Castle-Age-Autoplayer-Beta-Loader.ieuser.js
 
 #7 With the CAAP file saved in My Documents, open My Documents. Now also open "My Computer" as well. In My Computer open your hardrive to show you a file called "Program Files" for 32bit systems OR "Program Files (x86)" for 64bit systems. In your Program Files you should now see a folder for "IE7Pro" open that. Now open the folder "userscripts".
 
