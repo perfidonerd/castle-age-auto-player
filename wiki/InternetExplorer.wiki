@@ -21,12 +21,11 @@ http://www.ie7pro.com/
 
 #5 After you Are able to open the IE7Pro preferences on the left side you should see where it says "User Scripts". Click that to show you what scripts you have. IE7Pro comes preloaded with several scripts that you have to manually click a checkbox to activate. You can delete all of those, or decide to try them yourself. That is up to you.
 
-#6 Now onto CAAP. To run CAAP on IE you first have to download and save the CAAP file. In IE when you try to download the CAAP file it should open a page that looks like a Microsoft Word document. From the toolbar again, click "File" and "Save As". Save it just as it is, don't change the name or file format. Save it to a location like "My Documents" so you can find it easily in the next step.
+#6 Now onto CAAP. To run CAAP on IE you first have to download and save the CAAP file. In IE when you try to download the CAAP file it should open a page that looks like a Microsoft Word document. From the toolbar again, click "File" and "Save As". Save it to somewhere that is easily accessible such as "My Documents". Don't rename the CAAP file, or it may not work.
 
 #7 With the CAAP file saved in My Documents, open My Documents. Now also open "My Computer" as well. In My Computer open your hardrive to show you a file called "Program Files" for 32bit systems OR "Program Files (x86)" for 64bit systems. In your Program Files you should now see a folder for "IE7Pro" open that. Now open the folder "userscripts".
 
-#8 With both "My Documents" and the IE7Pro "userscripts" documents open, simply drag the CAAP file (or copy and paste) into the IE7Pro "userscripts" folder. With the CAAP file in IE7Pro "userscripts" folder, you must rename the CAAP file. Do NOT rename the whole file! Leave the name just as it is! What you are changing is this...
-Castle-Age-Autoplayer.user TO Castle-Age-Autoplayer.ieuser
+#8 With both "My Documents" and the IE7Pro "userscripts" documents open, simply drag the CAAP file (or copy and paste) into the IE7Pro "userscripts" folder.
 
 #9 Now let's test it out and see if you did it right.
 Open IE (if already done, close out and re-open IE)
