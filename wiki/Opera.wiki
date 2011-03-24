@@ -8,7 +8,18 @@ Here is where I tell you that not only is Opera capable of running the CAAP scri
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Of course let's take this from the begining.
+
+#1 Assuming that you already have Opera on your computer, skip this step. If you do not have Opera on your computer already, download it for free here: http://www.opera.com/
+
+#2 Now that you have Opera on your computer, Now lets talk about extensions like Greasemonkey and such. Opera does not use these to run scripts. So let's move forward.
+
+#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. In your Opera browser click on your Tools" toolbar on the top. A dropdown menu will appear with "Preferences" listed at the bottom of the dropdown menu, click to open your Opera preferences. 
+
+#4 Now that you have made it this far and you are in your Opera Preferences, you will see a list of tabs."General / Forms / ect" click the tab that says "Advanced". In the Advanced section, on the left side of the Preferences box, click on where it says "Content". Make sure that "Enable Java Script" is checked. Then click where it says "JavaScript Options" on the right. 
+
+#5 This is where you tell Opera where to look for your Opera scripts. Opera can not run a script if it does not know where to find or store it.At the bottom of the "JavaScipt Options" box it says "User JavaScript Folder" and allows you to chose what folder to use. You can create a new folder and direct it to that, or be lazy (like me) and just direct it to your "My Documents" folder on your computer.
+
+#6 Now that Opera is configured to be able to run CAAP, and you have a folder directed for your Opera scripts, how about your CAAP download. 
+
+#6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy. (you can hide the lower menubar again if you would like)
