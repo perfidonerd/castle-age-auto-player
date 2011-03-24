@@ -20,6 +20,8 @@ Of course let's take this from the begining.
 
 #5 This is where you tell Opera where to look for your Opera scripts. Opera can not run a script if it does not know where to find or store it.At the bottom of the "JavaScipt Options" box it says "User JavaScript Folder" and allows you to chose what folder to use. You can create a new folder and direct it to that, or be lazy (like me) and just direct it to your "My Documents" folder on your computer.
 
-#6 Now that Opera is configured to be able to run CAAP, and you have a folder directed for your Opera scripts, how about your CAAP download. 
+#6 Now that Opera is configured to be able to run CAAP, and you have a folder directed for your Opera scripts, how about your CAAP download. Download CAAP for Opera here: http://castle-age-auto-player.googlecode.com/svn/trunk/Opera/Castle-Age-Autoplayer-Opera.user.js
 
-#6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy. (you can hide the lower menubar again if you would like)
+#7 Now you may question why did CAAP not download, and why does it just show a white screen with words and the actual JavaScript code? Nevermind that, but do not exit that page just yet. What you are going to do here is go up to your Opera toolbar on the top and click the "File" tab. Now click "Save As". Now chose where to save it (if lazy like me, just save and keep it in "My Documents").
+
+#8 Now let's test it out and see if you did it right. Open Opera (if already done, close out and re-open Opera). Now visit the Castle Age page and enjoy.
