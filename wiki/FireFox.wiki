@@ -20,7 +20,7 @@ Of course let's take this from the begining.
 
 #4 Now that you have made it this far and you see the Greasemonkey monkey head, just make sure the monkey head is coloured in and if right clicked on a menubox will appear that at the bottom option will say "Enabled" just make sure that it is enabled or your scripts will not run.
 
-#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. 
+#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/Castle-Age-Autoplayer-FireFox.user.js
 
 #6 Now onto CAAP. To run CAAP on IE you first have to download and save the CAAP file. In IE when you try to download the CAAP file it should open a page that looks like a Microsoft Word document. From the toolbar again, click "File" and "Save As". Save it to somewhere that is easily accessible such as "My Documents". Don't rename the CAAP file, or it may not work. http://castle-age-auto-player.googlecode.com/svn/trunk/IE/Castle-Age-Autoplayer-Beta-Loader.ieuser.js
 
