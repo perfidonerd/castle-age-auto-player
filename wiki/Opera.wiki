@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Add your content here.
+Here is where I tell you that not only is Opera capable of running the CAAP script, but I will tell you how to do it!
 
 
 = Details =
