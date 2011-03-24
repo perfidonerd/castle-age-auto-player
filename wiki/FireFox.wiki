@@ -22,10 +22,5 @@ Of course let's take this from the begining.
 
 #5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/Castle-Age-Autoplayer-FireFox.user.js
 
-#6 Now onto CAAP. To run CAAP on IE you first have to download and save the CAAP file. In IE when you try to download the CAAP file it should open a page that looks like a Microsoft Word document. From the toolbar again, click "File" and "Save As". Save it to somewhere that is easily accessible such as "My Documents". Don't rename the CAAP file, or it may not work. http://castle-age-auto-player.googlecode.com/svn/trunk/IE/Castle-Age-Autoplayer-Beta-Loader.ieuser.js
-
-#7 With the CAAP file saved in My Documents, open My Documents. Now also open "My Computer" as well. In My Computer open your hardrive to show you a file called "Program Files" for 32bit systems OR "Program Files (x86)" for 64bit systems. In your Program Files you should now see a folder for "IE7Pro" open that. Now open the folder "userscripts".
-
-#8 With both "My Documents" and the IE7Pro "userscripts" documents open, simply drag the CAAP file (or copy and paste) into the IE7Pro "userscripts" folder.
-
-#9 Now let's test it out and see if you did it right. Open IE (if already done, close out and re-open IE) Go back up to the toolbar and to "Tools" and back to "IE7Pro Preferences". Go back to "User Scripts". You should now see CAAP as being listed. You may have to check the box at the top that says "Enable User Scripts" if not already checked. YOU MUST ENABLE to have CAAP work. Now make sure that CAAP "Castle Age Autoplayer" is checked. Click "OK" and now visit the Castle Age page and enjoy.
+#6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy.
+(you can hide the lower menubar again if you would like)
