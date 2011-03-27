@@ -13,7 +13,7 @@ Here is where I tell you that not only is Apple Safari capable of running the CA
 This will be broke down into two sections PC and MAC. Pay attention to which one you are reading because they are as different as... well, as different as PC and Mac.
 
 
-= Details =
+= PC Details =
 
 Of course let's take this from the begining.
 
