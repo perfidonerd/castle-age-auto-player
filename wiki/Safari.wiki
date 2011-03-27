@@ -26,6 +26,6 @@ Download Ninjakit here: http://ss-o.net/safari/extension/NinjaKit.safariextz
 
 #4 Now that you have made it this far and you see Ninjakit is listed as a Safari extension, just make sure that the checkbox is checked next to "Enable Ninjakit". You may also notice Ninjakit has a little throwing star icon up next to your address bar. It should place itself there automatically, but depending on your computer and everything, you may have to manually put it there (if you want it). Just click "View" up in your menubar and then click on "Customize Toolbar".
 
-#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/Castle-Age-Autoplayer-FireFox.user.js
+#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Safari script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/Safari/Castle-Age-Autoplayer-Safari.user.js
 
-#6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy. (you can hide the lower menubar again if you would like)
+#6 Now let's test it out and see if you did it right. Open Safari (if already done, close out and re-open Safari. Now visit the Castle Age page and enjoy.
