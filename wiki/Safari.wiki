@@ -29,3 +29,8 @@ Download Ninjakit here: http://ss-o.net/safari/extension/NinjaKit.safariextz
 #5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Safari script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/Safari/Castle-Age-Autoplayer-Safari.user.js
 
 #6 Now let's test it out and see if you did it right. Open Safari (if already done, close out and re-open Safari. Now visit the Castle Age page and enjoy.
+
+
+= MAC Details =
+
+~Unfinished~
