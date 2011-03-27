@@ -22,9 +22,9 @@ Of course let's take this from the begining.
 #2 Now that you have Safari for Windows on your computer, let's talk about extensions. To make CAAP to be able to run on Safari you will first need to download a small program called Ninjakit. You must download Ninjakit from your Safari browser or it will not work.
 Download Ninjakit here: http://ss-o.net/safari/extension/NinjaKit.safariextz
 
-#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. First go up to your menubar and click on "Edit" then "Preferances".
+#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. First go up to your menubar and click on "Edit" then "Preferances". Click on where it says "Extensions" you should now Ninjakit as being listed. If Ninjakit is not listed, you may need to close out of your browser and re-open it.
 
-#4 Now that you have made it this far and you see the Greasemonkey monkey head, just make sure the monkey head is coloured in and if right clicked on a menubox will appear that at the bottom option will say "Enabled" just make sure that it is enabled or your scripts will not run.
+#4 Now that you have made it this far and you see Ninjakit is listed as a Safari extension, just make sure that the checkbox is checked next to "Enable Ninjakit"
 
 #5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/Castle-Age-Autoplayer-FireFox.user.js
 
