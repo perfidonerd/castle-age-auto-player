@@ -19,10 +19,10 @@ Of course let's take this from the begining.
 
 #1 Assuming that you already have Apple Safari on your computer, skip this step. If you do not have Safari on your computer already, download it for free here: http://www.apple.com/safari/
 
-#2 Now that you have Safari on your computer, let's talk about extensions. To make CAAP to be able to run on Safari for PC you will first need to download a small program called Ninjakit. You must download Ninjakit from your Safari browser or it will not work.
+#2 Now that you have Safari for Windows on your computer, let's talk about extensions. To make CAAP to be able to run on Safari you will first need to download a small program called Ninjakit. You must download Ninjakit from your Safari browser or it will not work.
 Download Ninjakit here: http://ss-o.net/safari/extension/NinjaKit.safariextz
 
-#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. if you look on the bottom of the screen in the lower right hand corner you should see a little monkey head. If you do not see this, you may have your "Add-On Bar" hidden. To show your add-on bar just simply go up to your toolbar and click the "view" toolbar. A drop-down box will show up and you should see the "Toolbar" menu that when hovered over will show the "Add-On Bar" just click that to show a bar go across the bottom of the page. In that bar is where you will see the monkey head.
+#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. First go up to your menubar and click on "Edit" then "Preferances".
 
 #4 Now that you have made it this far and you see the Greasemonkey monkey head, just make sure the monkey head is coloured in and if right clicked on a menubox will appear that at the bottom option will say "Enabled" just make sure that it is enabled or your scripts will not run.
 
