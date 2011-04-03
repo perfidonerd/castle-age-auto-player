@@ -16,6 +16,7 @@ Of course let's take this from the begining.
 
 #2 Now that you have Mozilla Firefox on your computer, let's talk about extensions. To make CAAP to be able to run on Mozilla Firefox you will first need to download a small program called Greasemonkey. You must download Greasmonkey from your Firefox browser or it will not work.
 https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
+
 Should be noted, that to move on to number 3, you must close out of all currently open Firefox browsers, windows, tabs, ect. Then restart Firefox.
 
 #3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. if you look on the bottom of the screen in the lower right hand corner you should see a little monkey head. If you do not see this, you may have your "Add-On Bar" hidden. To show your add-on bar just simply go up to your toolbar and click the "view" toolbar. A drop-down box will show up and you should see the "Toolbar" menu that when hovered over will show the "Add-On Bar" just click that to show a bar go across the bottom of the page. In that bar is where you will see the monkey head.
