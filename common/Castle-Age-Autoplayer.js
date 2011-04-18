@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.25.0
-// @dev            6
+// @dev            7
 // @license        GPL version 3 or any later version; http://www.gnu.org/copyleft/gpl.html
 // ==/UserScript==
 
@@ -17,7 +17,7 @@
 
 (function () {
     var caapVersion   = "140.25.0",
-        devVersion    = "6",
+        devVersion    = "7",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -26627,7 +26627,7 @@
 
         hbest: 2,
 
-        compress: $u.is_firefox ? false : true,
+        compress: true,
 
         load: function () {
             try {
@@ -26732,7 +26732,7 @@
             try {
                 spreadsheet.hbest = spreadsheet.hbest === false ? JSON.hbest(spreadsheet.records) : spreadsheet.hbest;
                 $u.log(3, "spreadsheet.records Hbest", spreadsheet.hbest);
-                ss.setItem('spreadsheet.records', spreadsheet.records, spreadsheet.hbest, spreadsheet.compress);
+                ss.setItem('spreadsheet.records', spreadsheet.records, spreadsheet.hbest, $u.is_firefox ? false : spreadsheet.compress);
                 $u.log(3, "spreadsheet.save", spreadsheet.records);
                 return true;
             } catch (err) {

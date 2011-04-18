@@ -3,7 +3,7 @@
 // @namespace      caap
 // @description    Auto player for Castle Age
 // @version        140.25.0
-// @dev            6
+// @dev            7
 // @include        http*://apps.*facebook.com/castle_age/*
 // @include        http://web3.castleagegame.com/castle_ws/*
 // @include        http*://*.facebook.com/common/error.html*
@@ -24,7 +24,7 @@ if (typeof GM_getResourceText === 'function' && typeof CAAP_SCOPE_RUN === 'undef
     (function page_scope_runner() {
         try {
             var caapVersion = "140.25.0",
-                devVersion = "6",
+                devVersion = "7",
                 CAAP_SCOPE_RUN = [GM_getValue('SUC_target_script_name', ''), GM_getValue('SUC_remote_version', ''), GM_getValue('DEV_remote_version', '')],
                 // If we're _not_ already running in the page, grab the full source of this script.
                 my_src = "(" + page_scope_runner.caller.toString() + "());",
@@ -112,7 +112,7 @@ if (typeof GM_getResourceText === 'function' && typeof CAAP_SCOPE_RUN === 'undef
 
 (function () {
     var caapVersion   = "140.25.0",
-        devVersion    = "6",
+        devVersion    = "7",
         hiddenVar     = true,
         caap_timeout  = 0,
         image64       = {},
@@ -26722,7 +26722,7 @@ if (typeof GM_getResourceText === 'function' && typeof CAAP_SCOPE_RUN === 'undef
 
         hbest: 2,
 
-        compress: $u.is_firefox ? false : true,
+        compress: true,
 
         load: function () {
             try {
@@ -26827,7 +26827,7 @@ if (typeof GM_getResourceText === 'function' && typeof CAAP_SCOPE_RUN === 'undef
             try {
                 spreadsheet.hbest = spreadsheet.hbest === false ? JSON.hbest(spreadsheet.records) : spreadsheet.hbest;
                 $u.log(3, "spreadsheet.records Hbest", spreadsheet.hbest);
-                ss.setItem('spreadsheet.records', spreadsheet.records, spreadsheet.hbest, spreadsheet.compress);
+                ss.setItem('spreadsheet.records', spreadsheet.records, spreadsheet.hbest, $u.is_firefox ? false : spreadsheet.compress);
                 $u.log(3, "spreadsheet.save", spreadsheet.records);
                 return true;
             } catch (err) {
