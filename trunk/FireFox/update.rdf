@@ -8,7 +8,7 @@
                    em:maxVersion="4.0.*"
                    em:updateLink="http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/packed/caap.xpi"
                    em:updateInfoURL="http://code.google.com/p/castle-age-auto-player/updates/list"
-                   em:updateHash="sha1:146f25e492d4721291b055f08c643d5f347b5aa3" />
+                   em:updateHash="sha1:93db38cb6e6fbafb174bedd52b7de6ed0d806535" />
   <RDF:Description RDF:about="urn:mozilla:extension:xotic750@gmail.com"
                    em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAJ+xzBYF/tA3WU4vtuSWjOVSeESINFGv8QWggo+ZjmCqpsXEkFyep9XsodRlzPrPkCdMlh/7dXKuX8MQyR6VGCqfWlQyACshrpTi8k1Jq4zPkWKtPsMuh5BLsx8vODDc24ci8I4veeo+Pke36kew6RkAJTvdMT0TWjN56lRI5e+7">
     <em:updates RDF:resource="rdf:#$6praC"/>
