@@ -10,7 +10,7 @@
                    em:updateInfoURL="http://code.google.com/p/castle-age-auto-player/updates/list"
                    em:updateHash="sha1:93db38cb6e6fbafb174bedd52b7de6ed0d806535" />
   <RDF:Description RDF:about="urn:mozilla:extension:xotic750@gmail.com"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAJ+xzBYF/tA3WU4vtuSWjOVSeESINFGv8QWggo+ZjmCqpsXEkFyep9XsodRlzPrPkCdMlh/7dXKuX8MQyR6VGCqfWlQyACshrpTi8k1Jq4zPkWKtPsMuh5BLsx8vODDc24ci8I4veeo+Pke36kew6RkAJTvdMT0TWjN56lRI5e+7">
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAEbbLZHfJbK3e1dme76Q/nqCN3dk+FNy0i/kW3JiLtaoOCLClm6Sn3yJOsWlalqnK28mNjSlkfEbIfiMHqgws91rUWrYHR2E6uRCJveDUJV+bHm+qlKdewgjDj+SzJIt+Mcj0dVa+e/pOa4Qdidy4oU0zn123qAwaO6JrPN9qr+8">
     <em:updates RDF:resource="rdf:#$6praC"/>
   </RDF:Description>
   <RDF:Seq RDF:about="rdf:#$6praC">
