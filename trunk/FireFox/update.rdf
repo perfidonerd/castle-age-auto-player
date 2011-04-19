@@ -8,16 +8,16 @@
                    em:maxVersion="4.0.*"
                    em:updateLink="http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/packed/caap.xpi"
                    em:updateInfoURL="http://code.google.com/p/castle-age-auto-player/updates/list"
-                   em:updateHash="sha1:7dfdcd75494e05860266d849fedd5a7682d4c47a" />
+                   em:updateHash="sha1:146f25e492d4721291b055f08c643d5f347b5aa3" />
   <RDF:Description RDF:about="urn:mozilla:extension:xotic750@gmail.com"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAC+POaTC5jhBRWqBMqCpN4eZnXvVIIKkktByFJD2qcYNhQTuYNEZMPeyCSrgiw3GCwytKXS7jSAdIBujgtUCCZkDo5Yd8Q9ZU8NX0Yc3Yme0yLXoBJyWU1uCkB4itZ4Yn+DyKLrMcHkyeACpxTncg9toTYZOm/XXlz+QQe41RMHc">
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAJ+xzBYF/tA3WU4vtuSWjOVSeESINFGv8QWggo+ZjmCqpsXEkFyep9XsodRlzPrPkCdMlh/7dXKuX8MQyR6VGCqfWlQyACshrpTi8k1Jq4zPkWKtPsMuh5BLsx8vODDc24ci8I4veeo+Pke36kew6RkAJTvdMT0TWjN56lRI5e+7">
     <em:updates RDF:resource="rdf:#$6praC"/>
   </RDF:Description>
   <RDF:Seq RDF:about="rdf:#$6praC">
     <RDF:li RDF:resource="rdf:#$7praC"/>
   </RDF:Seq>
   <RDF:Description RDF:about="rdf:#$7praC"
-                   em:version="140.25.0.7">
+                   em:version="140.25.0.8">
     <em:targetApplication RDF:resource="rdf:#$apraC"/>
   </RDF:Description>
 </RDF:RDF>
