@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -6,11 +6,10 @@
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="3.5"
                    em:maxVersion="4.0.*"
-                   em:updateLink="http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/packed/caap.xpi"
-                   em:updateInfoURL="http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/update.xhtml"
-                   em:updateHash="sha1:8b0b38d0d7c7d0b6610dbc1ba590b12176e7d1be" />
+                   em:updateLink="https://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/packed/caap.xpi"
+                   em:updateInfoURL="https://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/update.xhtml">
   <RDF:Description RDF:about="urn:mozilla:extension:xotic750@gmail.com"
-                   em:signature="MIGRMAsGCSqGSIb3DQEBDQOBgQBpi5vm2Lch2Wab9YDePFQHft6FnBd6M0T7uYvOrUKxku+HgqTAKK3Sz9yTkhYCbje1zwYqefapaU+WsLfeejd8tKZtFYfHkCrxkvJd/46rLYrFF0BU0Ck/Z0d2gdGiMRy74vOVzC+8XQ/HpeyFDTBmrlLpF43Xii8Z6BavxIiRxA==">
+                   em:signature="">
     <em:updates RDF:resource="rdf:#$6praC"/>
   </RDF:Description>
   <RDF:Seq RDF:about="rdf:#$6praC">
