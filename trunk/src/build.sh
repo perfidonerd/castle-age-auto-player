@@ -82,7 +82,7 @@ if [ !"$version" ]; then
     #sed "s/!sha!/$shasum/g" ../FireFox/update.rdf.tmp1 > ../FireFox/update.rdf.tmp2
     #cp ../FireFox/update.rdf.tmp2 ../FireFox/update.rdf
     #./bin/mccoy/mccoy&
-    ./bin/mxtools/uhura -i ../FireFox/update.rdf.tmp1 -o ../FireFox/update.rdf -k ../FireFox/keyfile.pem  -h ../FireFox/packed/caap.xpi
+    ./bin/mxtools/uhura -i ../FireFox/update.rdf.tmp1 -o ../FireFox/update.rdf -k ../FireFox/keyfile.pem  ../FireFox/packed/caap.xpi
     rm -f ../FireFox/update.rdf.tmp1 ../FireFox/update.rdf.tmp2
 fi
 echo "Done."
