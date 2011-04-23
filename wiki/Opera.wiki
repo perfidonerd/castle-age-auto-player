@@ -12,16 +12,20 @@ Of course let's take this from the begining.
 
 #1 Assuming that you already have Opera on your computer, skip this step. If you do not have Opera on your computer already, download it for free here: http://www.opera.com/
 
-#2 Now that you have Opera on your computer, Now lets talk about extensions like Greasemonkey and such. Opera does not use these to run scripts. So let's move forward.
+#2 Now that you have Opera on your computer, Now lets talk about extensions like Greasemonkey (firefox extension) and such. Opera does not use these to run scripts. So let's move forward.
 
-#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. In your Opera browser click on your Tools" toolbar on the top. A dropdown menu will appear with "Preferences" listed at the bottom of the dropdown menu, click to open your Opera preferences. 
+#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. In your Opera browser click on your "Tools" toolbar on the top. A dropdown menu will appear with "Preferences" listed at the bottom of the dropdown menu, click to open your Opera preferences. 
 
 #4 Now that you have made it this far and you are in your Opera Preferences, you will see a list of tabs."General / Forms / ect" click the tab that says "Advanced". In the Advanced section, on the left side of the Preferences box, click on where it says "Content". Make sure that "Enable Java Script" is checked. Then click where it says "JavaScript Options" on the right. 
 
-#5 This is where you tell Opera where to look for your Opera scripts. Opera can not run a script if it does not know where to find or store it.At the bottom of the "JavaScipt Options" box it says "User JavaScript Folder" and allows you to chose what folder to use. You can create a new folder and direct it to that, or be lazy (like me) and just direct it to your "My Documents" folder on your computer.
+#5 When you click on the Opera release on the home page, it will pop up a box that says ""Install Extension" where you click install or ignore. Of course, ignoring will cancel the install. After you click install, a box on the lower right hand corner of the screen should appear telling you that CAAP has been installed and was installed correctly.
 
-#6 Now that Opera is configured to be able to run CAAP, and you have a folder directed for your Opera scripts, how about your CAAP download. Download CAAP for Opera here: http://castle-age-auto-player.googlecode.com/svn/trunk/Opera/Castle-Age-Autoplayer-Opera.user.js
+#6 Now let's test it out and see if you did it right. Open Opera (if already done, close out and re-open Opera). Now visit the Castle Age page and enjoy.
 
-#7 Now you may question why did CAAP not download, and why does it just show a white screen with words and the actual JavaScript code? Nevermind that, but do not exit that page just yet. What you are going to do here is go up to your Opera toolbar on the top and click the "File" tab. Now click "Save As". Now chose where to save it (if lazy like me, just save and keep it in "My Documents").
 
-#8 Now let's test it out and see if you did it right. Open Opera (if already done, close out and re-open Opera). Now visit the Castle Age page and enjoy.
+
+= To Update =
+
+As of yet, Version 140.25.0d14 and below are unable to automatically update CAAP for you. However this is very easy to do. CAAP will tell you on the bottom of the screen saying "Castle Age Autoplayer has been installed" just as it did in step 5. However, if you know what version you are running, and it this message shows up, already knowing CAAP is installed on your computer, this message is more than likely telling you that an Update is available, but has not been installed yet.
+
+To install the update you need to go into your Opera extensions list (up in the toolbar, click on tools. a dropdown menu will appear and one of the options will be "Extensions", click that and another dropdown box will apear with one option saying "Manage Extensions", just simply click on that. A new tab will open in your Opera browser showing you all of your extensions, find your CAAP extension, as it will be labeled "Castle Age Autoplayer" and if an update is available, there will be an update button next to it. Simply click to update, and go back to your Castle Age game and enjoy.
