@@ -3,21 +3,25 @@
 
 = Introduction =
 
-Add your content here.
+Here is where I tell you that not only is Google Chrome and other Chromium browsers capable of running the CAAP script, but I will tell you how to do it!
+
+
 
 
 = Details =
 
 Of course let's take this from the begining.
 
-#1 Assuming that you already have Opera on your computer, skip this step. If you do not have Opera on your computer already, download it for free here: http://www.opera.com/
+#1 Assuming that you already have Chrome (or other versions of Chrome/Chromium) on your computer, skip this step. For ease of writing, and simplicity of the Chromium environment, all Chromium browsers will be listed as "Chrome" wether it be Google Chrome, Chromium, Chrome Canary, ect. If you do not have Chrome on your computer already, download it for free here: http://www.google.com/chrome
 
-#2 Now that you have Opera on your computer, Now lets talk about extensions like Greasemonkey (firefox extension) and such. Opera does not use these to run scripts. So let's move forward.
+#2 Now that you have Chrome on your computer, Now lets talk about extensions like Greasemonkey (firefox extension) and such. Chrome does not use these to run scripts. So let's move forward.
 
-#3 This is where things will get slightly difficult. But if you're still here reading this and got this far, I can talk you through it. In your Opera browser click on your "Tools" toolbar on the top. A dropdown menu will appear with "Preferences" listed at the bottom of the dropdown menu, click to open your Opera preferences.
+#3 On the homepage click on the Chrome release to install CAAP into Chrome. On the very bottom left hand corner of your screen a bar will appear showing CAAP downloading and it will ask wether to Continue or to Discard. Of course to discard cancels the download/install. After you hit Continue, a box will appear in the middle of your screen saying "Confirm Installation" with two options, Install or Cancel. Again, to cancel means that you will not be running CAAP on your Chrome browser. After you click on Install, a box in your upper right corner will say that Castle Age Auoplayer has been installed.
 
-#4 Now that you have made it this far and you are in your Opera Preferences, you will see a list of tabs."General / Forms / ect" click the tab that says "Advanced". In the Advanced section, on the left side of the Preferences box, click on where it says "Content". Make sure that "Enable Java Script" is checked. Then click where it says "Java Script Options" on the right.
+#4 Now let's test it out and see if you did it right. Open Chrome (if already done and already on the Castle Age page, simply refresh the page). If not, just visit the page. and enjoy.
 
-#5 When you click on the Opera release on the home page, it will pop up a box that says ""Install Extension" where you click install or ignore. Of course, ignoring will cancel the install. After you click install, a box on the lower right hand corner of the screen should appear telling you that CAAP has been installed and was installed correctly.
+= To Update =
 
-#6 Now let's test it out and see if you did it right. Open Opera (if already done, close out and re-open Opera). Now visit the Castle Age page and enjoy.
+To update on your Chrome browser, Auto Updates do work, although at this time they may take some time from being released to when your computer decides to check on it. If you are impatient and know that an update is available, or simply haven't updated in a while and would like to check...
+
+You can simply visit this page and repeat the process listed above. 
