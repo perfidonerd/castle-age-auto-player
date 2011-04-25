@@ -6,6 +6,10 @@
 Here is where I tell you that not only is Google Chrome and other Chromium browsers capable of running the CAAP script, but I will tell you how to do it!
 
 
+= Code Specifically Wrote For =
+
+Google Chrome 10 Internet Browser
+Chromium 12 Internet Browser
 
 
 = Details =
@@ -19,6 +23,7 @@ Of course let's take this from the begining.
 #3 On the homepage click on the Chrome release to install CAAP into Chrome. On the very bottom left hand corner of your screen a bar will appear showing CAAP downloading and it will ask wether to Continue or to Discard. Of course to discard cancels the download/install. After you hit Continue, a box will appear in the middle of your screen saying "Confirm Installation" with two options, Install or Cancel. Again, to cancel means that you will not be running CAAP on your Chrome browser. After you click on Install, a box in your upper right corner will say that Castle Age Auoplayer has been installed.
 
 #4 Now let's test it out and see if you did it right. Open Chrome (if already done and already on the Castle Age page, simply refresh the page). If not, just visit the page. and enjoy.
+
 
 = To Update =
 
