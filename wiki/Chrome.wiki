@@ -19,13 +19,17 @@ Of course let's take this from the begining.
 
 #2 Now that you have Chrome on your computer, Now lets talk about extensions like Greasemonkey (firefox extension) and such. Chrome does not use these to run scripts. So let's move forward.
 
-#3 On the homepage click on the Chrome release to install CAAP into Chrome. On the very bottom left hand corner of your screen a bar will appear showing CAAP downloading and it will ask wether to Continue or to Discard. Of course to discard cancels the download/install. After you hit Continue, a box will appear in the middle of your screen saying "Confirm Installation" with two options, Install or Cancel. Again, to cancel means that you will not be running CAAP on your Chrome browser. After you click on Install, a box in your upper right corner will say that Castle Age Auoplayer has been installed.
+#3 Download the current build of CAAP here
+
+https://github.com/magowiz/Castle-Age-Autoplayer/blob/master/Chrome/packed/Chrome.crx?raw=true
+
+On the very bottom left hand corner of your screen a bar will appear showing CAAP downloading and it will ask wether to Continue or to Discard. Of course to discard cancels the download/install. After you hit Continue, a box will appear in the middle of your screen saying "Confirm Installation" with two options, Install or Cancel. Again, to cancel means that you will not be running CAAP on your Chrome browser. After you click on Install, a box in your upper right corner will say that Castle Age Auoplayer has been installed.
 
 #4 Now let's test it out and see if you did it right. Open Chrome (if already done and already on the Castle Age page, simply refresh the page). If not, just visit the page. and enjoy.
 
 
 = To Update =
 
-To update on your Chrome browser, Auto Updates do work, although at this time they may take some time from being released to when your computer decides to check on it. If you are impatient and know that an update is available, or simply haven't updated in a while and would like to check...
+To update on your Chrome browser, Auto Updates should work, although at this time they may take some time from being released to when your computer decides to check on it. If you are impatient and know that an update is available, or simply haven't updated in a while and would like to check...
 
 You can simply visit this page and repeat the process listed above. 
