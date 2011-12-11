@@ -26,7 +26,7 @@ Should be noted, that to move on to number 3, you must close out of all currentl
 
 #4 Now that you have made it this far and you see the Greasemonkey monkey head, just make sure the monkey head is coloured in and if right clicked on a menubox will appear that at the bottom option will say "Enabled" just make sure that it is enabled or your scripts will not run.
 
-#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/FireFox/Castle-Age-Autoplayer-FireFox.user.js
+#5 Now that you have (presumably) made it this far, you're well on your way. Now just download the Firefox script for CAAP. http://castle-age-auto-player.googlecode.com/svn/trunk/Castle-Age-Autoplayer.user.js
 
 #6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy.
 (you can hide the lower menubar again if you would like)
