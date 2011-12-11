@@ -10,8 +10,8 @@ Here is where I tell you that not only is Mozilla Firefox capable of running the
 Firefox 8.0
 
 
-= Details
-Script Method =
+= Details =
+= Script Method =
 
 Of course let's take this from the begining.
 
@@ -31,8 +31,8 @@ Should be noted, that to move on to number 3, you must close out of all currentl
 #6 Now let's test it out and see if you did it right. Open Firefox (if already done, close out and re-open Firefox) Go back up to the toolbar on the bottom with the monkey head. Right click on the monkey head again. You should now see CAAP listed as "Castle Age Autoplayer" and it should have a checkbox in front of it. If it does not have a checkbox, just click on it to check it. Now visit the Castle Age page and enjoy.
 (you can hide the lower menubar again if you would like)
 
-= Details
-XPi Method =
+= Details =
+= XPi Method =
 
 Of course let's take this from the begining.
 
