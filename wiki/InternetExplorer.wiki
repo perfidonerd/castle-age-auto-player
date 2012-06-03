@@ -31,3 +31,7 @@ http://castle-age-auto-player.googlecode.com/svn/trunk/IE/Castle-Age-Autoplayer-
 #9 Now let's test it out and see if you did it right.
 Open IE (if already done, close out and re-open IE)
 Go back up to the toolbar and to "Tools" and back to "IE7Pro Preferences". Go back to "User Scripts". You should now see CAAP as being listed. You may have to check the box at the top that says "Enable User Scripts" if not already checked. YOU MUST ENABLE to have CAAP work. Now make sure that CAAP "Castle Age Autoplayer" is checked. Click "OK" and now visit the Castle Age page and enjoy.  
+
+
+= WARNING:  140.25.0 d19 Last Known Good Configuration =
+= (No Longer Works) =
