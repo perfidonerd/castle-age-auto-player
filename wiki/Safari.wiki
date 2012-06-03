@@ -35,4 +35,5 @@ Download Ninjakit here: http://ss-o.net/safari/extension/NinjaKit.safariextz
 
 ~Unfinished~
 
-= WARNING: 140.25.0 d19 Last Known Good Configuration (No Longer Works) =
+= WARNING: 140.25.0 d19 Last Known Good Configuration 
+(No Longer Works) =
