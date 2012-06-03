@@ -45,3 +45,5 @@ Of course let's take this from the begining.
 https://github.com/magowiz/Castle-Age-Autoplayer/blob/master/FireFox/packed/caap.xpi?raw=true
 
 #4 Now test it and see if it works. Visit your  Castle Age page and enjoy.
+
+= WARNING: 141.0.0 d15 Last Known Good Configuration =
