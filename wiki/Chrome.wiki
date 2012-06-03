@@ -21,7 +21,7 @@ Of course let's take this from the begining.
 
 #3 Download the current build of CAAP here
 
-https://github.com/magowiz/Castle-Age-Autoplayer/blob/master/Chrome/packed/Chrome.crx?raw=true
+https://github.com/magowiz/Castle-Age-Autoplayer/downloads
 
 On the very bottom left hand corner of your screen a bar will appear showing CAAP downloading and it will ask wether to Continue or to Discard. Of course to discard cancels the download/install. After you hit Continue, a box will appear in the middle of your screen saying "Confirm Installation" with two options, Install or Cancel. Again, to cancel means that you will not be running CAAP on your Chrome browser. After you click on Install, a box in your upper right corner will say that Castle Age Auoplayer has been installed.
 
