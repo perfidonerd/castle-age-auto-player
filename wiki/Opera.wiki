@@ -26,12 +26,4 @@ Of course let's take this from the begining.
 
 #6 Now let's test it out and see if you did it right. Open Opera (if already done, close out and re-open Opera). Now visit the Castle Age page and enjoy.
 
-
-
-= To Update =
-
-As of yet, Version 140.25.0d14 and below are unable to automatically update CAAP for you. However this is very easy to do. CAAP will tell you on the bottom of the screen saying "Castle Age Autoplayer has been installed" just as it did in step 5. However, if you know what version you are running, and it this message shows up, already knowing CAAP is installed on your computer, this message is more than likely telling you that an Update is available, but has not been installed yet.
-
-To install the update you need to go into your Opera extensions list (up in the toolbar, click on tools. a dropdown menu will appear and one of the options will be "Extensions", click that and another dropdown box will apear with one option saying "Manage Extensions", just simply click on that. A new tab will open in your Opera browser showing you all of your extensions, find your CAAP extension, as it will be labeled "Castle Age Autoplayer" and if an update is available, there will be an update button next to it. Simply click to update, and go back to your Castle Age game and enjoy.
-
 = WARNING: 140.25.0 d19 Last Known Good Configuration  =
