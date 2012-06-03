@@ -8,7 +8,7 @@ Here is where I tell you that not only is Google Chrome and other Chromium brows
 
 = Code Specifically Wrote For =
 
-Google Chrome 15.0.874.121
+Google Chrome 19.0.1084.52
 
 
 = Details =
