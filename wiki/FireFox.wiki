@@ -7,7 +7,7 @@ Here is where I tell you that not only is Mozilla Firefox capable of running the
 
 = Code Specifically Wrote For =
 
-Firefox 8.0
+Firefox 12.0
 
 
 = Details =
